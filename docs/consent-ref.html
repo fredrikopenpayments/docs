@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Consent API Reference · Open Payments</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Open Payments Europe, Open Banking Platform - Consent REST API."/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Consent API Reference · Open Payments"/><meta property="og:type" content="website"/><meta property="og:url" content="https://openpaymentseurope.github.io/docs/"/><meta property="og:description" content="Open Payments Europe, Open Banking Platform - Consent REST API."/><meta property="og:image" content="https://openpaymentseurope.github.io/docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://openpaymentseurope.github.io/docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://openpaymentseurope.github.io/docs/blog/atom.xml" title="Open Payments Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://openpaymentseurope.github.io/docs/blog/feed.xml" title="Open Payments Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110256897-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs/"><img class="logo" src="/docs/img/header_logo.svg" alt="Open Payments"/><h2 class="headerTitleWithLogo">Open Payments</h2></a><a href="/docs/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/docs/introduction" target="_self">Docs</a></li><li class=""><a href="/docs/docs/doc4" target="_self">API</a></li><li class=""><a href="/docs/help" target="_self">Help</a></li><li class=""><a href="/docs/blog/" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API Reference</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting Started<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/docs/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/banks">Supported banks</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/glossary">Glossary</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/docs/api">Getting started with the API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/aspsp">How to use the ASPSP API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/consent">How to use the Consent API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/ais">How to use the AIS API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/pis">How to use the PIS API</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">API Reference<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/docs/aspsp-ref">ASPSP API Reference</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/docs/consent-ref">Consent API Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/ais-ref">AIS API Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/pis-ref">PIS API Reference</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/openpaymentseurope/docs/blob/master/docs/consent-ref.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Consent API Reference</h1></header><article><div><span><p>Open Payments Europe, Open Banking Platform - Consent REST API.</p>
+<h2><a class="anchor" aria-hidden="true" id="environments"></a><a href="#environments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Environments</h2>
+<p>Available <code>AUTH_HOST</code> values</p>
+<table>
+<thead>
+<tr><th>Environment</th><th>URL</th></tr>
+</thead>
+<tbody>
+<tr><td>Sandbox</td><td><a href="https://auth.sandbox.openbankingplatform.com">https://auth.sandbox.openbankingplatform.com</a></td></tr>
+<tr><td>Production</td><td><a href="https://auth.openbankingplatform.com">https://auth.openbankingplatform.com</a></td></tr>
+</tbody>
+</table>
+<p>Available <code>API_HOST</code> values</p>
+<table>
+<thead>
+<tr><th>Environment</th><th>URL</th></tr>
+</thead>
+<tbody>
+<tr><td>Sandbox</td><td><a href="https://api.sandbox.openbankingplatform.com">https://api.sandbox.openbankingplatform.com</a></td></tr>
+<tr><td>Production</td><td><a href="https://api.openbankingplatform.com">https://api.openbankingplatform.com</a></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="security"></a><a href="#security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Security</h2>
+<h3><a class="anchor" aria-hidden="true" id="redirect"></a><a href="#redirect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirect</h3>
+<table>
+<thead>
+<tr><th>oauth2</th><th><em>OAuth 2.0</em></th></tr>
+</thead>
+<tbody>
+<tr><td>Authorization Endpoint</td><td><code>[AUTH_HOST]</code>/connect/authorize</td></tr>
+<tr><td>Token Endpoint</td><td><code>[AUTH_HOST]</code>/connect/token</td></tr>
+<tr><td>Flow</td><td><a href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant</a></td></tr>
+<tr><td>Scopes</td><td>accountinformation</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="decoupled"></a><a href="#decoupled" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decoupled</h3>
+<table>
+<thead>
+<tr><th>decoupled</th><th>BankID</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="endpoints"></a><a href="#endpoints" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Endpoints</h2>
+<h3><a class="anchor" aria-hidden="true" id="api_hostconsents"></a><a href="#api_hostconsents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[API_HOST]</code>/consents</h3>
+<h4><a class="anchor" aria-hidden="true" id="post"></a><a href="#post" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-ID</td><td>header</td><td>Client ID of the PSU in the ASPSP client interface.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-ID-Type</td><td>header</td><td>Type of the PSU-ID, needed in scenarios where PSUs have several PSU-IDs as access possibility.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Corporate-ID</td><td>header</td><td>Client ID of the PSU as a corporate in the ASPSP client interface. Only used in a corporate context.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Corporate-ID-Type</td><td>header</td><td>Type of the PSU-ID as a corporate, needed in scenarios where PSUs have several PSU-IDs as access possibility. Only used in a corporate context.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Redirect-Preferred</td><td>header</td><td>If it equals &quot;true&quot;, the TPP prefers a redirect over an decoupled SCA approach. If it equals &quot;false&quot;, the TPP prefers not to be redirected for SCA. If the parameter is not used, the ASPSP will choose the SCA approach to be applied depending on the SCA method chosen by the TPP/PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Redirect-URI</td><td>header</td><td>URI of the TPP, where the transaction flow shall be redirected to after a Redirect.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Nok-Redirect-URI</td><td>header</td><td>If this URI is contained, the TPP is asking to redirect the transaction flow to this address instead of the TPP-Redirect-URI in case of a negative result of the redirect SCA method. This might be ignored by the ASPSP.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Explicit-Authorisation-Preferred</td><td>header</td><td>Not used.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="api_hostconsentsconsentid"></a><a href="#api_hostconsentsconsentid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[API_HOST]</code>/consents/{consentId}</h3>
+<h4><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-1"></a><a href="#responses-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="delete"></a><a href="#delete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DELETE</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-2"></a><a href="#responses-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="api_hostconsentsconsentidstatus"></a><a href="#api_hostconsentsconsentidstatus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[API_HOST]</code>/consents/{consentId}/status</h3>
+<h4><a class="anchor" aria-hidden="true" id="get-1"></a><a href="#get-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-3"></a><a href="#responses-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="api_hostconsentsconsentidauthorisations"></a><a href="#api_hostconsentsconsentidauthorisations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[API_HOST]</code>/consents/{consentId}/authorisations</h3>
+<h4><a class="anchor" aria-hidden="true" id="post-1"></a><a href="#post-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-4"></a><a href="#responses-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="get-2"></a><a href="#get-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-5"></a><a href="#responses-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="api_hostconsentsconsentidauthorisationsauthorisationid"></a><a href="#api_hostconsentsconsentidauthorisationsauthorisationid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[API_HOST]</code>/consents/{consentId}/authorisations/{authorisationId}</h3>
+<h4><a class="anchor" aria-hidden="true" id="get-3"></a><a href="#get-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>authorisationId</td><td>path</td><td>Id of the authorisation.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-6"></a><a href="#responses-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="put"></a><a href="#put" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PUT</h4>
+<h5><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Location</th><th>Description</th><th>Required</th><th>Schema</th></tr>
+</thead>
+<tbody>
+<tr><td>consentId</td><td>path</td><td>Id of the consent.</td><td>Yes</td><td>string</td></tr>
+<tr><td>authorisationId</td><td>path</td><td>Id of the authorisation.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-BicFi</td><td>header</td><td>Bank Identifier Code.</td><td>Yes</td><td>string</td></tr>
+<tr><td>X-Request-ID</td><td>header</td><td>ID of the request, unique to the call, as determined by the initiating party.</td><td>Yes</td><td>string (uuid)</td></tr>
+<tr><td>Digest</td><td>header</td><td>Is contained if and only if the &quot;Signature&quot; element is contained in the header of the request.</td><td>No</td><td>string</td></tr>
+<tr><td>Signature</td><td>header</td><td>A signature of the request on application level.</td><td>No</td><td>string</td></tr>
+<tr><td>TPP-Signature-Certificate</td><td>header</td><td>The certificate used for signing the request, in base64 encoding. Must be contained if a signature is contained.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Address</td><td>header</td><td>The forwarded IP address of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-IP-Port</td><td>header</td><td>The forwarded IP port of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept</td><td>header</td><td>The forwarded IP Accept header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Charset</td><td>header</td><td>The forwarded IP Accept-Charset header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Encoding</td><td>header</td><td>The forwarded IP Accept-Encoding header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Accept-Language</td><td>header</td><td>The forwarded IP Accept-Language header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-User-Agent</td><td>header</td><td>The forwarded IP User-Agent header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Http-Method</td><td>header</td><td>The forwarded IP Http-Method header fields of PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Device-ID</td><td>header</td><td>UUID (Universally Unique Identifier) for a device, which is used by the PSU.</td><td>No</td><td>string</td></tr>
+<tr><td>PSU-Geo-Location</td><td>header</td><td>The forwarded Geo Location of the corresponding http request between PSU and TPP.</td><td>No</td><td>string</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="responses-7"></a><a href="#responses-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h5>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not found</td></tr>
+<tr><td>405</td><td>Method not allowed</td></tr>
+<tr><td>406</td><td>Not acceptable</td></tr>
+<tr><td>408</td><td>Request timeout</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>412</td><td>Precondition Failed</td></tr>
+<tr><td>415</td><td>Unsupported media type</td></tr>
+<tr><td>429</td><td>Too many requests</td></tr>
+<tr><td>500</td><td>Internal server error</td></tr>
+<tr><td>503</td><td>Service unavailable</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/docs/aspsp-ref"><span class="arrow-prev">← </span><span>ASPSP API Reference</span></a><a class="docs-next button" href="/docs/docs/ais-ref"><span>AIS API Reference</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#environments">Environments</a></li><li><a href="#security">Security</a><ul class="toc-headings"><li><a href="#redirect">Redirect</a></li><li><a href="#decoupled">Decoupled</a></li></ul></li><li><a href="#endpoints">Endpoints</a><ul class="toc-headings"><li><a href="#api_hostconsents"><code>[API_HOST]</code>/consents</a></li><li><a href="#api_hostconsentsconsentid"><code>[API_HOST]</code>/consents/{consentId}</a></li><li><a href="#api_hostconsentsconsentidstatus"><code>[API_HOST]</code>/consents/{consentId}/status</a></li><li><a href="#api_hostconsentsconsentidauthorisations"><code>[API_HOST]</code>/consents/{consentId}/authorisations</a></li><li><a href="#api_hostconsentsconsentidauthorisationsauthorisationid"><code>[API_HOST]</code>/consents/{consentId}/authorisations/{authorisationId}</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs/" class="nav-home"></a><div><h5>Legal</h5><a href="https://openpayments.io/terms-conditions" target="_blank">Terms &amp; Condition</a><a href="https://openpayments.io/privacy-policy" target="_blank">Privacy Policy</a></div><div><h5>About</h5><a href="https://openpayments.io" target="_blank">Open Payments Europe</a><a href="https://developer.openpayments.io" target="_blank">Developer Portal</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>Support</h5><a href="/docs/blog">API Blog</a><a href="mailto:support@openpayments.io">support@openpayments.io</a><a href="https://github.com/openpaymentseurope">GitHub</a></div></section><section class="social"><ul><li><a target="_blank" href="https://www.facebook.com/openpayments"><i class="fab fa-facebook"></i> </a></li><li><a target="_blank" href="https://www.instagram.com/openpayments"><i class="fab fa-instagram"></i> </a></li><li><a target="_blank" href="https://www.linkedin.com/company/openpayments"><i class="fab fa-linkedin"></i> </a></li><li><a target="_blank" href="http://twitter.com/openpaymentseu"><i class="fab fa-twitter"></i></a></li></ul></section><section class="copyright">Copyright © 2019 Open Payments Europe AB</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '6ae8782a9fea6cc447c939050cadca06',
+                indexName: 'default',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>

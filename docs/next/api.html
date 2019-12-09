@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting Started with the API · Open Payments</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Open Payments Platform uses OAuth2 (specifically OIDC) for authentication. In the following sections, we have provided step"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting Started with the API · Open Payments"/><meta property="og:type" content="website"/><meta property="og:url" content="https://openpaymentseurope.github.io/docs/"/><meta property="og:description" content="Open Payments Platform uses OAuth2 (specifically OIDC) for authentication. In the following sections, we have provided step"/><meta property="og:image" content="https://openpaymentseurope.github.io/docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://openpaymentseurope.github.io/docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://openpaymentseurope.github.io/docs/blog/atom.xml" title="Open Payments Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://openpaymentseurope.github.io/docs/blog/feed.xml" title="Open Payments Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110256897-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/docs/"><img class="logo" src="/docs/img/header_logo.svg" alt="Open Payments"/><h2 class="headerTitleWithLogo">Open Payments</h2></a><a href="/docs/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/docs/next/introduction" target="_self">Docs</a></li><li class=""><a href="/docs/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/docs/help" target="_self">Help</a></li><li class=""><a href="/docs/blog/" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorials</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting Started<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/docs/next/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/banks">Supported banks</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/glossary">Glossary</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/docs/next/api">Getting started with the API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/aspsp">How to use the ASPSP API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/consent">How to use the Consent API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/ais">How to use the AIS API</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/pis">How to use the PIS API</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">API Reference<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/docs/next/aspsp-ref">ASPSP API Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/consent-ref">Consent API Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/ais-ref">AIS API Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/docs/next/pis-ref">PIS API Reference</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/openpaymentseurope/docs/blob/master/docs/api.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Getting Started with the API</h1></header><article><div><span><p>Open Payments Platform uses OAuth2 (specifically OIDC) for authentication. In the following sections, we have provided step
+by step instructions on how you will interact with the platform. Throughout this documentation we use brackets to denote variables that need to be replaced with corresponding values. The actual domains to access are two - one for handling auth and one for doing the actual calls. See list below for values in sandbox and production.</p>
+<p>Available <code>AUTH_HOST</code> values</p>
+<table>
+<thead>
+<tr><th>Environment</th><th>URL</th></tr>
+</thead>
+<tbody>
+<tr><td>Sandbox</td><td><a href="https://auth.sandbox.openbankingplatform.com">https://auth.sandbox.openbankingplatform.com</a></td></tr>
+<tr><td>Production</td><td><a href="https://auth.openbankingplatform.com">https://auth.openbankingplatform.com</a></td></tr>
+</tbody>
+</table>
+<p>Available <code>API_HOST</code> values</p>
+<table>
+<thead>
+<tr><th>Environment</th><th>URL</th></tr>
+</thead>
+<tbody>
+<tr><td>Sandbox</td><td><a href="https://api.sandbox.openbankingplatform.com">https://api.sandbox.openbankingplatform.com</a></td></tr>
+<tr><td>Production</td><td><a href="https://api.openbankingplatform.com">https://api.openbankingplatform.com</a></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="register-a-client"></a><a href="#register-a-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Register a client</h2>
+<p><a href="https://developer.openpayments.io">Register a client</a> by creating a developer account at our <a href="https://developer.openpayments.io">Developer Portal</a> to acquire client credentials.</p>
+<p>Decide what parts of the API you want access to for your new client. At this point you can choose one or several of ASPSP Information, Account Information and Payment Initiation.</p>
+<p>You will get a <code>client_id</code> and a <code>client_secret</code> that you can use to authenticate with the platform. The secret will not be stored on our end so it is iportant that you keep track of it. Otherwise you'll have to obtain new credentials in the portal.</p>
+<h2><a class="anchor" aria-hidden="true" id="postman-collection"></a><a href="#postman-collection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Postman collection</h2>
+<p>You can <a href="https://docs.openpayments.io/obp.postman_collection.json">download</a> our Postam Collection with ready made API calls.</p>
+<h2><a class="anchor" aria-hidden="true" id="general-notes-about-requests"></a><a href="#general-notes-about-requests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>General notes about requests</h2>
+<h3><a class="anchor" aria-hidden="true" id="x-request-id"></a><a href="#x-request-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>X-Request-ID</h3>
+<p>All calls accept a header called <code>X-Request-ID</code> - this should be set to a newly generated guid. Denoted in the code with [GUID]. If your client is also a platform it would make sense to accept such an id from the client that calls you. This id is used to trace requests through our systems. Logging it somewhere together with the request will make bug hunting much easier.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/docs/next/glossary"><span class="arrow-prev">← </span><span>Glossary</span></a><a class="docs-next button" href="/docs/docs/next/aspsp"><span>How to use the ASPSP API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#register-a-client">Register a client</a></li><li><a href="#postman-collection">Postman collection</a></li><li><a href="#general-notes-about-requests">General notes about requests</a><ul class="toc-headings"><li><a href="#x-request-id">X-Request-ID</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs/" class="nav-home"></a><div><h5>Legal</h5><a href="https://openpayments.io/terms-conditions" target="_blank">Terms &amp; Condition</a><a href="https://openpayments.io/privacy-policy" target="_blank">Privacy Policy</a></div><div><h5>About</h5><a href="https://openpayments.io" target="_blank">Open Payments Europe</a><a href="https://developer.openpayments.io" target="_blank">Developer Portal</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>Support</h5><a href="/docs/blog">API Blog</a><a href="mailto:support@openpayments.io">support@openpayments.io</a><a href="https://github.com/openpaymentseurope">GitHub</a></div></section><section class="social"><ul><li><a target="_blank" href="https://www.facebook.com/openpayments"><i class="fab fa-facebook"></i> </a></li><li><a target="_blank" href="https://www.instagram.com/openpayments"><i class="fab fa-instagram"></i> </a></li><li><a target="_blank" href="https://www.linkedin.com/company/openpayments"><i class="fab fa-linkedin"></i> </a></li><li><a target="_blank" href="http://twitter.com/openpaymentseu"><i class="fab fa-twitter"></i></a></li></ul></section><section class="copyright">Copyright © 2019 Open Payments Europe AB</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '6ae8782a9fea6cc447c939050cadca06',
+                indexName: 'default',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
