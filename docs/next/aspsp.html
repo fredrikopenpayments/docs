@@ -82,7 +82,7 @@
 <tr><td>Production</td><td><a href="https://api.openbankingplatform.com">https://api.openbankingplatform.com</a></td></tr>
 </tbody>
 </table>
-<h2><a class="anchor" aria-hidden="true" id="acquire-an-access-token-for-aspsp-information"></a><a href="#acquire-an-access-token-for-aspsp-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acquire an access token for ASPSP Information</h2>
+<h2><a class="anchor" aria-hidden="true" id="acquire-an-access-token-for-aspspdocsdocsnextglossary-information"></a><a href="#acquire-an-access-token-for-aspspdocsdocsnextglossary-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acquire an access token for <a href="/docs/docs/next/glossary">ASPSP</a> Information</h2>
 <pre><code class="hljs css language-javascript">curl -X POST
     [AUTH_HOST]/connect/token
     -H <span class="hljs-string">'Content-Type: application/x-www-form-urlencoded'</span>
@@ -91,7 +91,7 @@
 <p>This post will return a JSON object that looks like this:</p>
 <pre><code class="hljs css language-javascript">{
     <span class="hljs-string">"access_token"</span>: <span class="hljs-string">"[ACCESS_TOKEN]"</span>,
-    <span class="hljs-string">"expires_in"</span>: <span class="hljs-number">7776000</span>,
+    <span class="hljs-string">"expires_in"</span>: <span class="hljs-number">3600</span>,
     <span class="hljs-string">"token_type"</span>: <span class="hljs-string">"Bearer"</span>,
     <span class="hljs-string">"scope"</span>: <span class="hljs-string">"aspspinformation"</span>
 }
@@ -117,14 +117,6 @@
         {
             <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"FI"</span>,
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"Finland"</span>
-        },
-        {
-            <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"DE"</span>,
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Germany"</span>
-        },
-        {
-            <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"DK"</span>,
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Denmark"</span>
         }
     ]
 }
@@ -139,10 +131,10 @@
 <h3><a class="anchor" aria-hidden="true" id="path-parameter"></a><a href="#path-parameter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Path parameter</h3>
 <p>The <code>COUNTRY_CODE</code> parameter should be one of the codes in the ISO 3166-1 alpha-2 standard.</p>
 <h3><a class="anchor" aria-hidden="true" id="response-1"></a><a href="#response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h3>
-<pre><code class="hljs css language-javascript">    {
-        <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"SE"</span>,
-        <span class="hljs-string">"name"</span>: <span class="hljs-string">"Sweden"</span>
-    }
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"SE"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Sweden"</span>
+}
 </code></pre>
 <p>This is exactly the same as in the country list.</p>
 <h2><a class="anchor" aria-hidden="true" id="get-cities"></a><a href="#get-cities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get cities</h2>
@@ -169,16 +161,6 @@
             <span class="hljs-string">"cityId"</span>: <span class="hljs-string">"ba9dd929-1408-33a6-3ce2-bc45fcfaaa5c"</span>,
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"Helsinki"</span>,
             <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"FI"</span>
-        },
-        {
-            <span class="hljs-string">"cityId"</span>: <span class="hljs-string">"bb97dd78-835c-9922-e700-a8b5b3f5cbba"</span>,
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Frankfurt"</span>,
-            <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"DE"</span>
-        },
-        {
-            <span class="hljs-string">"cityId"</span>: <span class="hljs-string">"8f64d9db-7f38-e13e-cbf8-809e6bc6175c"</span>,
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Copenhagen"</span>,
-            <span class="hljs-string">"isoCountryCode"</span>: <span class="hljs-string">"DK"</span>
         }
     ]
 }
@@ -199,7 +181,7 @@
 }
 </code></pre>
 <p>This is exactly as one item in the list returned from the &quot;get cities&quot; endpoint.</p>
-<h2><a class="anchor" aria-hidden="true" id="get-aspsps"></a><a href="#get-aspsps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get ASPSPs</h2>
+<h2><a class="anchor" aria-hidden="true" id="get-aspspsdocsdocsnextglossary"></a><a href="#get-aspspsdocsdocsnextglossary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get <a href="/docs/docs/next/glossary">ASPSPs</a></h2>
 <pre><code class="hljs css language-javascript">curl -X GET
     [API_HOST]/psd2/aspspinformation/v1/aspsps
     -H <span class="hljs-string">'Authorization: Bearer [ACCESS_TOKEN]'</span>
@@ -207,10 +189,10 @@
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="query-parameters-2"></a><a href="#query-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query parameters</h3>
 <ul>
-<li><code>isoCountryCodes</code> a comma separated list of countries to retrieve ASPSPs for. Optional.</li>
-<li><code>cityIds</code> a comma separated list of city ids to retrieve ASPSPs for. Optional.</li>
+<li><code>isoCountryCodes</code> a comma separated list of countries to retrieve <a href="/docs/docs/next/glossary">ASPSPs</a> for. Optional.</li>
+<li><code>cityIds</code> a comma separated list of city ids to retrieve <a href="/docs/docs/next/glossary">ASPSPs</a> for. Optional.</li>
 </ul>
-<p>The service will return all matches for the queries. So it is possible to get all ASPSPs in Sweden and Helsinki by sending in the country code for Sweden and the city id for Helsinki.</p>
+<p>The service will return all matches for the queries. So it is possible to get all <a href="/docs/docs/next/glossary">ASPSPs</a> in Sweden and Helsinki by sending in the country code for Sweden and the city id for Helsinki.</p>
 <h3><a class="anchor" aria-hidden="true" id="response-4"></a><a href="#response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h3>
 <pre><code class="hljs css language-javascript">{
     <span class="hljs-string">"aspsps"</span>: [
@@ -232,7 +214,7 @@
     ]
 }
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="get-aspsp"></a><a href="#get-aspsp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get ASPSP</h2>
+<h2><a class="anchor" aria-hidden="true" id="get-aspspdocsdocsnextglossary"></a><a href="#get-aspspdocsdocsnextglossary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get <a href="/docs/docs/next/glossary">ASPSP</a></h2>
 <pre><code class="hljs css language-javascript">curl -X GET
     [API_HOST]/psd2/aspspinformation/v1/aspsps/[BICFI]
     -H <span class="hljs-string">'Authorization: Bearer [ACCESS_TOKEN]'</span>
@@ -240,7 +222,7 @@
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="path-parameter-2"></a><a href="#path-parameter-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Path parameter</h3>
 <ul>
-<li><code>BICFI</code> ASPSP identifier. It can be known upfront or it can be picked from the previous response.</li>
+<li><code>BICFI</code> <a href="/docs/docs/next/glossary">ASPSP</a> identifier. It can be known upfront or it can be picked from the previous response.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="response-5"></a><a href="#response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h3>
 <pre><code class="hljs css language-javascript">{
@@ -256,24 +238,16 @@
         <span class="hljs-string">"domestic"</span>
     ],
     <span class="hljs-string">"paymentProducts"</span>: [
-        <span class="hljs-string">"swedish-domestic-private-credit-transfers"</span>,
         <span class="hljs-string">"swedish-domestic-private-own-accounts-transfers"</span>,
         <span class="hljs-string">"swedish-domestic-private-bankgiros"</span>,
         <span class="hljs-string">"swedish-domestic-private-plusgiros"</span>,
-        <span class="hljs-string">"sepa-credit-transfers"</span>,
-        <span class="hljs-string">"cross-border-credit-transfers"</span>,
-        <span class="hljs-string">"high-value-credit-transfers"</span>,
-        <span class="hljs-string">"dk-domestic-credit-transfers"</span>,
-        <span class="hljs-string">"intra-company-credit-transfers"</span>,
-        <span class="hljs-string">"no-domestic-credit-transfers"</span>,
-        <span class="hljs-string">"pl-domestic-credit-transfers"</span>,
-        <span class="hljs-string">"se-domestic-credit-transfers"</span>,
-        <span class="hljs-string">"uk-domestic-credit-transfers"</span>
+        <span class="hljs-string">"high-value-credit-transfers"</span>
+        <span class="hljs-string">"se-domestic-credit-transfers"</span>
     ],
     <span class="hljs-string">"supportedAuthorizationMethods"</span>: [
         {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"OAuth2"</span>,
-            <span class="hljs-string">"uri"</span>: <span class="hljs-string">"https://auth.dev.openbankingplatform.com/.well-known/openid-configuration"</span>
+            <span class="hljs-string">"uri"</span>: <span class="hljs-string">"https://auth.sandbox.openbankingplatform.com/.well-known/openid-configuration"</span>
         }
     ],
     <span class="hljs-string">"bicFi"</span>: <span class="hljs-string">"ESSESESS"</span>,
@@ -295,7 +269,7 @@
 <li>the user selects its bank</li>
 <li>the system moves on to one of the other APIs to get account information or to initiate a payment</li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/docs/next/api"><span class="arrow-prev">← </span><span>Getting started with the API</span></a><a class="docs-next button" href="/docs/docs/next/consent"><span>How to use the Consent API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#acquire-an-access-token-for-aspsp-information">Acquire an access token for ASPSP Information</a></li><li><a href="#get-countries">Get countries</a><ul class="toc-headings"><li><a href="#query-parameters">Query parameters</a></li><li><a href="#response">Response</a></li></ul></li><li><a href="#get-one-country">Get one country</a><ul class="toc-headings"><li><a href="#path-parameter">Path parameter</a></li><li><a href="#response-1">Response</a></li></ul></li><li><a href="#get-cities">Get cities</a><ul class="toc-headings"><li><a href="#query-parameters-1">Query parameters</a></li><li><a href="#response-2">Response</a></li></ul></li><li><a href="#get-one-city">Get one city</a><ul class="toc-headings"><li><a href="#path-parameter-1">Path parameter</a></li><li><a href="#response-3">Response</a></li></ul></li><li><a href="#get-aspsps">Get ASPSPs</a><ul class="toc-headings"><li><a href="#query-parameters-2">Query parameters</a></li><li><a href="#response-4">Response</a></li></ul></li><li><a href="#get-aspsp">Get ASPSP</a><ul class="toc-headings"><li><a href="#path-parameter-2">Path parameter</a></li><li><a href="#response-5">Response</a></li></ul></li><li><a href="#flows-of-usage">Flows of usage</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs/" class="nav-home"></a><div><h5>Legal</h5><a href="https://openpayments.io/terms-conditions" target="_blank">Terms &amp; Condition</a><a href="https://openpayments.io/privacy-policy" target="_blank">Privacy Policy</a></div><div><h5>About</h5><a href="https://openpayments.io" target="_blank">Open Payments Europe</a><a href="https://developer.openpayments.io" target="_blank">Developer Portal</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>Support</h5><a href="/docs/blog">News Blog</a><a href="mailto:support@openpayments.io">support@openpayments.io</a><a href="https://github.com/openpaymentseurope/docs">GitHub</a></div></section><section class="social"><ul><li><a target="_blank" href="https://www.facebook.com/openpayments"><i class="fab fa-facebook"></i> </a></li><li><a target="_blank" href="https://www.instagram.com/openpayments"><i class="fab fa-instagram"></i> </a></li><li><a target="_blank" href="https://www.linkedin.com/company/openpayments"><i class="fab fa-linkedin"></i> </a></li><li><a target="_blank" href="http://twitter.com/openpaymentseu"><i class="fab fa-twitter"></i></a></li></ul></section><section class="copyright">Copyright © 2019 Open Payments Europe AB</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/docs/next/api"><span class="arrow-prev">← </span><span>Getting started with the API</span></a><a class="docs-next button" href="/docs/docs/next/consent"><span>How to use the Consent API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#acquire-an-access-token-for-aspspdocsdocsnextglossary-information">Acquire an access token for <a href="/docs/docs/next/glossary">ASPSP</a> Information</a></li><li><a href="#get-countries">Get countries</a><ul class="toc-headings"><li><a href="#query-parameters">Query parameters</a></li><li><a href="#response">Response</a></li></ul></li><li><a href="#get-one-country">Get one country</a><ul class="toc-headings"><li><a href="#path-parameter">Path parameter</a></li><li><a href="#response-1">Response</a></li></ul></li><li><a href="#get-cities">Get cities</a><ul class="toc-headings"><li><a href="#query-parameters-1">Query parameters</a></li><li><a href="#response-2">Response</a></li></ul></li><li><a href="#get-one-city">Get one city</a><ul class="toc-headings"><li><a href="#path-parameter-1">Path parameter</a></li><li><a href="#response-3">Response</a></li></ul></li><li><a href="#get-aspspsdocsdocsnextglossary">Get <a href="/docs/docs/next/glossary">ASPSPs</a></a><ul class="toc-headings"><li><a href="#query-parameters-2">Query parameters</a></li><li><a href="#response-4">Response</a></li></ul></li><li><a href="#get-aspspdocsdocsnextglossary">Get <a href="/docs/docs/next/glossary">ASPSP</a></a><ul class="toc-headings"><li><a href="#path-parameter-2">Path parameter</a></li><li><a href="#response-5">Response</a></li></ul></li><li><a href="#flows-of-usage">Flows of usage</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/docs/" class="nav-home"></a><div><h5>Legal</h5><a href="https://openpayments.io/terms-conditions" target="_blank">Terms &amp; Condition</a><a href="https://openpayments.io/privacy-policy" target="_blank">Privacy Policy</a></div><div><h5>About</h5><a href="https://openpayments.io" target="_blank">Open Payments Europe</a><a href="https://developer.openpayments.io" target="_blank">Developer Portal</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>Support</h5><a href="/docs/blog">News Blog</a><a href="mailto:support@openpayments.io">support@openpayments.io</a><a href="https://github.com/openpaymentseurope/docs">GitHub</a></div></section><section class="social"><ul><li><a target="_blank" href="https://www.facebook.com/openpayments"><i class="fab fa-facebook"></i> </a></li><li><a target="_blank" href="https://www.instagram.com/openpayments"><i class="fab fa-instagram"></i> </a></li><li><a target="_blank" href="https://www.linkedin.com/company/openpayments"><i class="fab fa-linkedin"></i> </a></li><li><a target="_blank" href="http://twitter.com/openpaymentseu"><i class="fab fa-twitter"></i></a></li></ul></section><section class="copyright">Copyright © 2019 Open Payments Europe AB</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
