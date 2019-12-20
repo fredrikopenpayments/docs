@@ -2,21 +2,21 @@
 <rss version="2.0">
     <channel>
         <title>Open Payments Blog</title>
-        <link>https://docs.openpayments.io/blog</link>
+        <link>https://openpaymentseurope.github.io/docs/blog</link>
         <description>The best place to stay up-to-date with the latest Open Payments news and events.</description>
         <lastBuildDate>Mon, 09 Dec 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>Open Payments Blog</title>
-            <url>https://docs.openpayments.io/img/header_logo.svg</url>
-            <link>https://docs.openpayments.io/blog</link>
+            <url>https://openpaymentseurope.github.io/docs/img/header_logo.svg</url>
+            <link>https://openpaymentseurope.github.io/docs/blog</link>
         </image>
         <copyright>Copyright © 2019 Open Payments Europe AB</copyright>
         <item>
             <title><![CDATA[New Version 1.0.0]]></title>
-            <link>https://docs.openpayments.io/blog/2019/12/09/new-version-1.0.0.html</link>
-            <guid>https://docs.openpayments.io/blog/2019/12/09/new-version-1.0.0.html</guid>
+            <link>https://openpaymentseurope.github.io/docs/blog/2019/12/09/new-version-1.0.0.html</link>
+            <guid>https://openpaymentseurope.github.io/docs/blog/2019/12/09/new-version-1.0.0.html</guid>
             <pubDate>Mon, 09 Dec 2019 06:00:00 GMT</pubDate>
             <description><![CDATA[<p>This blog post will test file name parsing issues when periods are present.</p> ]]></description>
         </item>

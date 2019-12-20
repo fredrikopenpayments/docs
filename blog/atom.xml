@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://docs.openpayments.io/blog</id>
+    <id>https://openpaymentseurope.github.io/docs/blog</id>
     <title>Open Payments Blog</title>
     <updated>2019-12-09T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://docs.openpayments.io/blog"/>
+    <link rel="alternate" href="https://openpaymentseurope.github.io/docs/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Open Payments news and events.</subtitle>
-    <logo>https://docs.openpayments.io/img/header_logo.svg</logo>
+    <logo>https://openpaymentseurope.github.io/docs/img/header_logo.svg</logo>
     <rights>Copyright © 2019 Open Payments Europe AB</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
-        <id>https://docs.openpayments.io/blog/2019/12/09/new-version-1.0.0.html</id>
-        <link href="https://docs.openpayments.io/blog/2019/12/09/new-version-1.0.0.html"/>
+        <id>https://openpaymentseurope.github.io/docs/blog/2019/12/09/new-version-1.0.0.html</id>
+        <link href="https://openpaymentseurope.github.io/docs/blog/2019/12/09/new-version-1.0.0.html"/>
         <updated>2019-12-09T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>This blog post will test file name parsing issues when periods are present.</p> ]]></summary>
         <author>
