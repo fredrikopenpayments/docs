@@ -7,12 +7,8 @@ info:
   title: Open Payments API ref
   version: "1.3.3"
   description: |
-    ## About the APIs
-
-    #### Payment Initiation Service (PIS)
-
-
-
+    # About the APIs
+    ## Account Information Service (AIS) 
     * Account transaction reports - including balances
     * Card transaction reports - including balances
     * Account balances
@@ -21,30 +17,41 @@ info:
     * A list of available card accounts
     * Account details
     * Card account details
-
-    #### Consent Service  
-
+    ## Consent Service  
     * Create and authorize consent between the PSU and the TPP
     * Get consent status 
     * Get previously authorized consents
+     ## Payment Initiation Service (PIS)
 
-    # Concepts
+    * Initiate payments
+    * Update payments
+    * Get payment status information
 
-    ## Roles
-    The most common abbreviations in this API ref are ASAPs, TPP and PSU.
+    ## Terminology
     The Open Payments Platform integrates with financial institutes, referred to as Account Servicing Payment Service Providers (ASPSPs). 
-    As a developer you are referred to as a Third party Payment Provider (TPP) and the user is known as a Payment Services User (PSU).
+    As a developer you are referred to as a Third party Payment Provider (TPP) and the end user is known as a Payment Services User (PSU).
 
-    <h2 id="scopes">Scopes</h2>
-    Using the apis requires that you choose a Strong Customer Authentication (SCA) scope.
-    The following SCA scopes are supported:
-
-    * OAuth SCA scope - The TPP asks the PSU to authenticate. The TPP is given a URL of an OAuth 2 authorization endpoint hosted by the ASPSP.
-
-    * Redirect SCA scope - The TPP asks the PSU to authenticate. A predefined address is used to redirect the user to the ASPSP user interface, where the SCA is done between the PSU and the ASPSP. 
-
-    * Decoupled SCA scope - A predefined address is used to redirect the user to the ASPSP user interface, where the ASPSP asks the PSU to authenticate and the SCA is done between the PSU and the ASPSP.
+    ## Basic flows
+    1. Get a token and set the scope to either AccountInformation (for AIS) or PaymentInitiation (for PIS).
     
+    2. Use the ASPSIS api to get ASPSP details, to be used in the other endpoints.
+
+    3. Create consent for:
+        - accounts
+        - balances
+        - transactions
+
+    4. Authorise consent with SCA scope:
+        - OAuth SCA scope - The TPP asks the PSU to authenticate. The TPP is given a URL of an OAuth 2 authorization endpoint hosted by the ASPSP.
+        - Redirect SCA scope - The TPP asks the PSU to authenticate. A predefined address is used to redirect the user to the ASPSP user interface, where the SCA is done between the PSU and the ASPSP. 
+        - Decoupled SCA scope - A predefined address is used to redirect the user to the ASPSP user interface, where the ASPSP asks the PSU to authenticate and the SCA is done between the PSU and the ASPSP.
+
+    5. Use PIS or AIS endpoints.
+
+    # Authentication
+    Open Payments Platform uses OAuth2 OpenID Connect for authentication.
+
+   
 
 servers:
   - url: https://api.sandbox.openbankingplatform.com/psd2
@@ -61,14 +68,18 @@ paths:
     post:
       summary: Create Payment Initiation
       description: |
-        ## Single and mulitilevel SCA Processes
+        The payment initiation endpoints are independant of the number of payment authorisations, however the response messages are specific to either 
+        one or multi-level SCA approaches.
 
-        The Payment Initiation Requests are independent from the need of one ore multi-level 
-        SCA processing, i.e. independent from the number of authorisations needed for the execution of payments. 
+        For payment initiation with multilevel SCA, this specification requires an explicit start of the authorization, i.e. links 
+        directly associated with SCA processing like 'scaRedirect' or 'scaOAuth' cannot be contained in the response message of a Payment Initation Request 
+        for a payment, where multiple authorisations are needed.
 
         Also if any data is needed for the next action, like selecting an SCA method is not supported in the response, 
-        since all starts of the multiple authorisations are fully equal. 
+        since all starts of the multiple authorisations are fully equal.
+
         In these cases, first an authorisation sub-resource has to be generated following the 'startAuthorisation' link.
+
       operationId: initiatePayment
       tags:
         - Payment Initiation Service (PIS)
@@ -697,8 +708,8 @@ paths:
     put:
       summary: Update PSU Data for Payment Initiation
       description: |
-        This methods updates PSU data on the authorisation resource if needed. 
-        It may authorise a payment within the Embedded SCA Approach where needed.
+        This methods updates PSU data on the authorisation resource. 
+        It authorises a payment within the Embedded SCA Approach.
 
         Independently from the SCA Approach it supports e.g. the selection of 
         the authentication method and a non-SCA PSU authentication.
@@ -1711,24 +1722,14 @@ paths:
     post:
       summary: Create Consent
       description: |
-        **Note!** This endpoint is used together with the PIS and the AIS APIs, to initiate the consent process. <a href="javascript:alert('More information');">test</a>
+        This endpoint defines the access rights to the PSU accounts and creates a <a href="consentID">consent ID</a> used together with the PIS and the AIS endpoints to initiate the consent process.
+        If a consent already exists, it will expire as soon as the new consent request is authorized by the PSU ("recurringIndicator" equals "true").      
         
-        This resource defines the access rights to the PSU accounts.
-        If the PSU-ID is left empty, all PSU accounts will be requested. 
-        
-        * a specific access right to all psd2 related services for all available accounts
-
-        Note!
-        If a consent to access account information already exists, it will expire as soon as the new 
-        consent request is authorized by the PSU ("recurringIndicator" equals "true").
-
-        ### Optional Extension
-
-        Note! The following options complies with some ASPSPs but not with all. As an option, the ASPSP accepts: 
-         a command, where only access rights are inserted (without addressed account)
-        The relation to accounts is then handled afterwards between PSU and ASPSP. 
-
-          Note! This option is not supported with embedded SCA. 
+        Optionally, the ASPSP accept a command:
+        * to get a list of available payment accounts 
+        * to get a list of available payment accounts with balances
+        * where only access rights are inserted (without specified accounts). The specific accounts are handled afterwards between the PSU and the ASPSP.
+        Note! This option is not supported with embedded SCA. 
 
       operationId: createConsent
       tags:
@@ -1820,7 +1821,7 @@ paths:
     get:
       summary: Get Consent
       description: |
-        Get content from the account information consent resource.
+        Get consent from the create consent endpoint.
       operationId: getConsentInformation
       tags:
         - Consent Service
@@ -2498,10 +2499,7 @@ paths:
     get:
       summary: Get ASPSP List
       description: |
-        Get a list of all supported ASPSPs including the following details:
-        * bicFi (ASPSP identification code)
-        * name of the ASPSP
-        * URl
+        Get a list of all supported ASPSPs.
 
       operationId: getASPSPList
       tags:
@@ -2554,14 +2552,9 @@ paths:
   /aspspinformation/v1/aspsps/{bicFi}:
     get:
       summary: Get ASPSP Details
+
       description: |
-        Get the following details about one ASPSP by Bicfi (ASPSP identification code):
-        * city
-        * country 
-        * address
-        * Url
-        * payment products (see Payment products)
-        * supported authentication methods
+        Get details about ASPSP.
       operationId: getASPSPDetails
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -2612,10 +2605,7 @@ paths:
     get:
       summary: Get City List
       description: |
-        Get a list of all ASAPs cities including the following details:
-        * city ID (ASPSP identification code)
-        * name of the ASPSP
-        * country code
+        Get a list of all ASAPs cities.
       
       operationId: getCityList
       tags:
@@ -2669,8 +2659,7 @@ paths:
     get:
       summary: Get City Details
       description: |
-        Get the following details about one city by city-ID:
-        *
+        Get details about one city by city-ID.
 
       operationId: getCityDetails
       tags:
@@ -2774,8 +2763,7 @@ paths:
     get:
       summary: Get Country Details
       description: |
-        Get the following country details about one ASPSP by ISO country code:
-        * 
+        Get details about one ASPSP by ISO country code.
       operationId: getCountryDetails
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -4947,8 +4935,7 @@ components:
         payments:
           description: |
             A list of generic JSON bodies payment initations for bulk payments via JSON.
-
-            Note: Some fields from single payments do not occcur in a bulk payment element
+            Note: Some fields from single payments do not occcur in a bulk payment element.
           type: array
           items:
             $ref: "#/components/schemas/paymentInitiationBulkElement_json"
@@ -4974,7 +4961,7 @@ components:
           <td>payee</td>
           <td>Max70Text</td>
           <td>Optional</td>
-          <td>The merchant where the card is accepted as an information to the PSU.</td>
+          <td>The merchant where the card is accepted, as an information to the PSU.</td>
         </tr> 
         <tr>
           <td>instructedAmount</td>
@@ -9266,7 +9253,9 @@ components:
       name: payment-service
       in: path
       description: |
-        Payment service:
+        * payments - a single payment initiation request
+        * bulk-payments - a collection of several payment iniatiation requests
+        * periodic-payments - recurring payments
 
       required: true
       schema:
@@ -9280,18 +9269,15 @@ components:
       name: payment-product
       in: path
       description: |
-        The addressed payment product endpoint, e.g. for SEPA Credit Transfers (SCT).
-        The ASPSP will publish which of the payment products/endpoints will be supported.
-
-        The following payment products are supported:
-          - sepa-credit-transfers
-          - instant-sepa-credit-transfers
-          - target-2-payments
-          - cross-border-credit-transfers
-          - pain.001-sepa-credit-transfers
-          - pain.001-instant-sepa-credit-transfers
-          - pain.001-target-2-payments
-          - pain.001-cross-border-credit-transfers
+        To get a full list of supported payment products, use the [Get ASPSP Details](#getdetails) API.
+        
+        The following payment products exist:
+          * domestic - a non-euro payment within one country
+          * international - interational payment
+          * sepa-credit-transfers - euro payment from one euro ASPSP to another ASPSP
+          * instant-sepa-credit-transfers
+          * target-2-payments
+          * cross-border-credit-transfers
 
         **Remark:** For all SEPA Credit Transfer based endpoints which accept XML encoding, 
         the XML pain.001 schemes provided by EPC are supported by the ASPSP as a minimum for the body content. 
@@ -9368,10 +9354,10 @@ components:
         $ref: "#/components/schemas/basketId"
 
     consentId_PATH:
-      name: consentId
+      name:  consentId
       in: path
       description: |
-        ID of the corresponding consent resource as returned by an Account Information Consent Request.
+        <a="This ID is created when a consent is created, and used with PIS and AIS.
       required: true
       schema:
         $ref: "#/components/schemas/consentId"
@@ -9491,9 +9477,11 @@ components:
       name: X-Request-ID
       in: header
       description: ID of the request. All calls accept the **X-Request-ID** header. 
-        Set a newly generated GUID. If your client is also a platform it would make sense to accept such an id from the client that calls you. 
+        Set a newly generated GUID. 
+        
+        If your client is also a platform it would make sense to accept such an id from the client that calls you. 
 
-        Note! The **X-Request-ID** is used to trace requests in our systems. Logging it somewhere together with the request will facilitate troubleshooting.
+        Note! The **X-Request-ID** is used to trace requests in the Open payments systems. Logging it somewhere together with the request will facilitate troubleshooting.
       required: true
       example: "99391c7e-ad88-49ec-a2ad-99ddcb1f7721"
       schema:
@@ -9553,9 +9541,9 @@ components:
         If equals "true", a Redirect SCA approach is preferrably applied.
 
         If equals "false", the Redirect SCA approach is not applied.
-        Then either of the Embedded or Decoupled SCA approaches is applied by the ASPSPs.
+        Then either of the Embedded SCA or Decoupled SCA methods is applied by the ASPSPs.
 
-        If the parameter is not used, the SCA approach is applied by the ASPSP.
+        If the parameter is not used, the SCA approach is determined by the ASPSP.
 
       schema:
         type: string
@@ -9569,7 +9557,7 @@ components:
       name: TPP-Redirect-URI
       in: header
       description: |
-        URI of the TPP, where the transaction flow shall be redirected to after a Redirect.
+        URI of the TPP, to where the transaction flow shall be redirected after a redirect SCA.
 
         Mandated for the Redirect SCA Approach, specifically 
         when TPP-Redirect-Preferred equals "true".
@@ -9637,8 +9625,8 @@ components:
       name: TPP-Notification-URI
       in: header
       description: |
-        URI for the Endpoint of the TPP-API to which the status of the payment initiation should be sent.
-        This header field may by ignored by the ASPSP.
+        TPP-api endpoint URI to which the payment initiation status is to be sent.
+        This field may by ignored by the ASPSP.
       schema:
         type: string
       required: false
@@ -9669,9 +9657,13 @@ components:
       name: PSU-ID
       in: header
       description: |
-        Client ID of the PSU in the ASPSP client interface. Might be mandated in the ASPSP's documentation.
-        Is not contained if an OAuth2 based authentication was performed in a pre-step or an OAuth2 based SCA was performed in an preceding
-        AIS service in the same session.
+        PSU Client ID in the ASPSP client interface. 
+        Note! If the PSU-ID is left empty, all PSU accounts will be requested. 
+
+        The PSU-ID will not be contained if:
+        - an OAuth2 based authentication has been performed
+        - an OAuth2 based SCA has been performed in an preceding AIS service in the same session
+        
       schema:
         type: string
       required: false
@@ -9681,7 +9673,7 @@ components:
       name: PSU-ID-Type
       in: header
       description: |
-        Type of the PSU-ID, needed in scenarios where PSUs have several PSU-IDs as access possibility.
+        PSU-ID type. Used when the PSU has several PSU-IDs.
       schema:
         type: string
       required: false
@@ -9690,7 +9682,7 @@ components:
       name: PSU-Corporate-ID
       in: header
       description: |
-        Might be mandated in the ASPSP's documentation. Only used in a corporate context.
+        Only used in a corporate context.
       schema:
         type: string
       required: false
@@ -9699,7 +9691,7 @@ components:
       name: PSU-Corporate-ID-Type
       in: header
       description: |
-        Might be mandated in the ASPSP's documentation. Only used in a corporate context.
+        Only used in a corporate context.
       schema:
         type: string
       required: false
@@ -9708,7 +9700,7 @@ components:
       name: PSU-IP-Address
       in: header
       description: |
-        The http IP Address between the TPP and the PSU. Mandatory.
+        The PSU http IP Address between the TPP and the PSU. Mandatory.
       schema:
         type: string
         format: ipv4
@@ -9719,7 +9711,7 @@ components:
       name: PSU-IP-Address
       in: header
       description: |
-        The http IP-Address between the TPP and the PSU. Optional.
+        The PSU http IP-Address between the TPP and the PSU. Optional.
       schema:
         type: string
         format: ipv4
@@ -9730,7 +9722,7 @@ components:
       name: PSU-IP-Address
       in: header
       description: |
-        The http IP-Address between the TPP and the PSU. Optional when using AIS.
+        The PSU http IP-Address between the TPP and the PSU. Optional when using AIS.
         Contained only if the request was actively initiated by the PSU.
       schema:
         type: string
@@ -9831,7 +9823,7 @@ components:
       name: PSU-Geo-Location
       in: header
       description: |
-        The forwarded Geo Location of the corresponding http request between PSU and TPP if available.
+         The geographic location of the PSU.
       schema:
         type: string
         pattern: 'GEO:-?[0-9]{1,2}\.[0-9]{6};-?[0-9]{1,3}\.[0-9]{6}'
@@ -9888,7 +9880,7 @@ components:
       name: bicFi
       in: path
       description: |
-        The ASPSP BicFi. 
+        The ASPSP identification code. 
       required: true
       schema:
         pattern: "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
@@ -9904,7 +9896,7 @@ components:
       description: |
         JSON request body for a payment inition request message 
 
-        The following payment-products supported:
+        The following payment-products are supported:
           * "sepa-credit-transfers" with JSON-Body
           * "instant-sepa-credit-transfers" with JSON-Body
           * "target-2-payments" with JSON-Body
@@ -12659,9 +12651,9 @@ tags:
   - name: Consent Service
     description: |
 
-      * Create and authorize consent between the PSU and the TPP
-      * Get consent status 
-      * List previously authorized consents
+      * Create and authorise consent between the PSU and the TPP
+      * Get consent status
+      * List previously authorised consents
 
   - name: Account Information Service (AIS)
     description: |
@@ -12679,7 +12671,6 @@ tags:
 
   - name: Payment Initiation Service (PIS)
     description: |
-      The Payment Initiation Service (PIS) API allows you to:
       * Get account transaction reports - including balances
       * Initiate payments
       * Update payments
