@@ -8,7 +8,8 @@ info:
   version: "1.3.3"
   description: |
     # About the APIs
-    ## Account Information Service (AIS) 
+    <h2><a href="#AIS">Account Information Service (AIS)</a></h2>
+
     * Account transaction reports - including balances
     * Card transaction reports - including balances
     * Account balances
@@ -17,11 +18,14 @@ info:
     * A list of available card accounts
     * Account details
     * Card account details
-    ## Consent Service  
+
+    <h2><a href="#Consent">Consent Service</a></h2>
+
     * Create and authorize consent between the PSU and the TPP
     * Get consent status 
     * Get previously authorized consents
-     ## Payment Initiation Service (PIS)
+
+     <h2><a href="#PIS">Payment Initiation Service (PIS)</a></h2>
 
     * Initiate payments
     * Update payments
@@ -1722,14 +1726,13 @@ paths:
     post:
       summary: Create Consent
       description: |
-        This endpoint defines the access rights to the PSU accounts and creates a <a href="consentID">consent ID</a> used together with the PIS and the AIS endpoints to initiate the consent process.
+        This endpoint defines the access rights to the PSU accounts and creates a <a href="#consentID">consentID</a> to be used together with the PIS and the AIS endpoints to initiate the consent process.
         If a consent already exists, it will expire as soon as the new consent request is authorized by the PSU ("recurringIndicator" equals "true").      
         
-        Optionally, the ASPSP accept a command:
+        Optionally, the ASPSP accepts a command:
         * to get a list of available payment accounts 
         * to get a list of available payment accounts with balances
-        * where only access rights are inserted (without specified accounts). The specific accounts are handled afterwards between the PSU and the ASPSP.
-        Note! This option is not supported with embedded SCA. 
+        * where only access rights are inserted (without specified accounts). Specifying of the accounts is handled afterwards between the PSU and the ASPSP. Note! This option is not supported with embedded SCA. 
 
       operationId: createConsent
       tags:
@@ -2499,7 +2502,7 @@ paths:
     get:
       summary: Get ASPSP List
       description: |
-        Get a list of all supported ASPSPs.
+        This endpoint returns a list of all supported ASPSPs with <a href="#bicFi">bicFi</a> identification codes to be used with other resources.
 
       operationId: getASPSPList
       tags:
@@ -2554,7 +2557,7 @@ paths:
       summary: Get ASPSP Details
 
       description: |
-        Get details about ASPSP.
+        Use the <a href="#bicFi">bicFi</a> identification code to get detailed information about the ASPSP.
       operationId: getASPSPDetails
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -2605,7 +2608,7 @@ paths:
     get:
       summary: Get City List
       description: |
-        Get a list of all ASAPs cities.
+        Get a list of all supported ASPSP country IDs and ASPSP city IDs.
       
       operationId: getCityList
       tags:
@@ -2659,7 +2662,7 @@ paths:
     get:
       summary: Get City Details
       description: |
-        Get details about one city by city-ID.
+        Use **city-ID** to list the supported ASPSPs by city.
 
       operationId: getCityDetails
       tags:
@@ -9357,7 +9360,7 @@ components:
       name:  consentId
       in: path
       description: |
-        <a="This ID is created when a consent is created, and used with PIS and AIS.
+        <a name="consentID">This ID is created when a consent is created, and used with PIS and AIS.
       required: true
       schema:
         $ref: "#/components/schemas/consentId"
@@ -9838,7 +9841,7 @@ components:
       name: isoCountryCodes
       in: query
       description: |
-        Returns a list of all supported ASPSPs country codes.
+       ASPSP country code. Use **isoCountryCodes** to list ASPSPs by country.
       required: false
       schema:
         $ref: "#/components/schemas/isoCountryCodes"
@@ -9848,7 +9851,7 @@ components:
       name: cityIds
       in: query
       description: |
-        Returns a list of all supported ASPSPs city IDs.
+        ASPSP city ID. Use **cityIds** to list ASPSPs by city.
       required: false
       schema:
         $ref: "#/components/schemas/cityIds"
@@ -9858,7 +9861,7 @@ components:
       name: city-id
       in: path
       description: |
-        The city ID. Use the **cityIdsQuery** parameter to get a list of all city IDs.
+        ASPSP cityID. Use **city-ID** to list the supported ASPSPs by city.
       required: true
       schema:
         type: string
@@ -9880,7 +9883,7 @@ components:
       name: bicFi
       in: path
       description: |
-        The ASPSP identification code. 
+        <a name="bicFi">The ASPSP identification code. Use **bicFi** to identify the ASPSP in the endpoints.
       required: true
       schema:
         pattern: "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
@@ -12641,23 +12644,23 @@ tags:
   #####################################################
   - name: ASPSP Information Service (ASPSPIS)
     description: |
-
+     <a name="ASPSPIS">ASPSPIS
       * List all ASPSPs connected to Open Payments platform
       * Get ASPSP details
       * List all ASPSPs in a specific city or country
 
-      Note! To access the ASPSPIS API use the [OAuth2 Payment Initiation scope](#Scopes).
+      Note! To access the ASPSPIS API use the OAuth2 Payment Initiation scope.
 
   - name: Consent Service
     description: |
-
+     <a name="Consent">Consent Service
       * Create and authorise consent between the PSU and the TPP
       * Get consent status
       * List previously authorised consents
 
   - name: Account Information Service (AIS)
     description: |
-
+      <a name="AIS">Account Information Service (AIS)
       * Get account transaction reports - including balances 
       * Card transaction reports - including balances
       * Get count balances
@@ -12667,13 +12670,13 @@ tags:
       * Account details
       * Card account details
 
-      Note! To access the AIS API use the [OAuth2 Payment Initiation scope](#Scopes).
+      Note! To access the AIS API use the OAuth2 Payment Initiation scope.
 
   - name: Payment Initiation Service (PIS)
     description: |
+     <a name="PIS">Payment Initiation Service (PIS)
       * Get account transaction reports - including balances
       * Initiate payments
       * Update payments
-      * Get payment status information
-
-      Note! To access the PIS API, use the [OAuth2 Payment Initiation scope](#Scopes).
+      * Get payment status information 
+      Note! To access the PIS API, use the OAuth2 Payment Initiation scope.
