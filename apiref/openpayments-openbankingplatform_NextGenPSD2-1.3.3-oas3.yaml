@@ -1726,13 +1726,18 @@ paths:
     post:
       summary: Create Consent
       description: |
-        This endpoint defines the access rights to the PSU accounts and creates a <a href="#consentID">consentID</a> to be used together with the PIS and the AIS endpoints to initiate the consent process.
-        If a consent already exists, it will expire as soon as the new consent request is authorized by the PSU ("recurringIndicator" equals "true").      
+        This endpoint defines the access rights to the PSU accounts and creates a consent ID, **consentID**, which is used to initiate the consent process.
+        
+        If a consent already exists, it will expire as soon as the new consent request is authorized by the PSU (**recurringIndicator** equals "true").      
         
         Optionally, the ASPSP accepts a command:
+       
         * to get a list of available payment accounts 
+        
         * to get a list of available payment accounts with balances
-        * where only access rights are inserted (without specified accounts). Specifying of the accounts is handled afterwards between the PSU and the ASPSP. Note! This option is not supported with embedded SCA. 
+
+        * where only access rights are inserted (without specified accounts). Specifying of the accounts is handled afterwards between the PSU and the ASPSP. 
+        Note! This option is not supported with embedded SCA. 
 
       operationId: createConsent
       tags:
@@ -1824,7 +1829,7 @@ paths:
     get:
       summary: Get Consent
       description: |
-        Get consent from the create consent endpoint.
+        Get consent including validity status.
       operationId: getConsentInformation
       tags:
         - Consent Service
@@ -1977,7 +1982,7 @@ paths:
   /consent/v1/consents/{consentId}/status:
     get:
       summary: Get Consent Status
-      description: The status of an account information consent resource.
+      description: Get the consent status.
       operationId: getConsentStatus
       tags:
         - Consent Service
@@ -2502,7 +2507,7 @@ paths:
     get:
       summary: Get ASPSP List
       description: |
-        This endpoint returns a list of all supported ASPSPs with <a href="#bicFi">bicFi</a> identification codes to be used with other resources.
+        Get a list of all supported ASPSPs with **bicFi** identification codes. 
 
       operationId: getASPSPList
       tags:
@@ -2557,7 +2562,7 @@ paths:
       summary: Get ASPSP Details
 
       description: |
-        Use the <a href="#bicFi">bicFi</a> identification code to get detailed information about the ASPSP.
+        Use **bicFi** identification code to get detailed information about the ASPSP.
       operationId: getASPSPDetails
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -2608,7 +2613,7 @@ paths:
     get:
       summary: Get City List
       description: |
-        Get a list of all supported ASPSP country IDs and ASPSP city IDs.
+        Get a list of all supported ASPSPs with city IDs.
       
       operationId: getCityList
       tags:
@@ -2662,7 +2667,7 @@ paths:
     get:
       summary: Get City Details
       description: |
-        Use **city-ID** to list the supported ASPSPs by city.
+       Use **city-id** to get APSP information by city.
 
       operationId: getCityDetails
       tags:
@@ -2714,7 +2719,7 @@ paths:
     get:
       summary: Get Country List
       description: |
-        Get a list of all ASAPs countries (country codes).
+        Get a list of all supported ASPSPs with ISO country codes.
       operationId: getCountriesList
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -2766,7 +2771,7 @@ paths:
     get:
       summary: Get Country Details
       description: |
-        Get details about one ASPSP by ISO country code.
+        Use **isoCountryCode** to get ASPSP information by country.
       operationId: getCountryDetails
       tags:
         - ASPSP Information Service (ASPSPIS)
@@ -7323,7 +7328,6 @@ components:
       description: |
         Detailed human readable text specific to this instance of the error. 
         XPath might be used to point to the issue generating the error in addition.
-        Remark for Future: In future, a dedicated field might be introduced for the XPath.
       type: string
       maxLength: 512
 
@@ -7342,8 +7346,7 @@ components:
       properties:
         type:
           description: |
-            A URI reference [RFC3986] that identifies the problem type. 
-            Remark For Future: These URI will be provided by NextGenPSD2 in future.
+            A URI reference [RFC3986] that identifies the problem type.
           type: string
           format: uri
           maxLength: 70
@@ -7358,7 +7361,6 @@ components:
           description: |
             Detailed human readable text specific to this instance of the error. 
             XPath might be used to point to the issue generating the error in addition.
-            Remark for Future: In future, a dedicated field might be introduced for the XPath.
           type: string
           maxLength: 512
         code:
@@ -9360,7 +9362,7 @@ components:
       name:  consentId
       in: path
       description: |
-        <a name="consentID">This ID is created when a consent is created, and used with PIS and AIS.
+        This ID is created when a consent is created. Use **consentID** as an identifier of the consent.
       required: true
       schema:
         $ref: "#/components/schemas/consentId"
@@ -9494,7 +9496,7 @@ components:
     X-BicFi:
       name: X-BicFi
       in: header
-      description: The ASPS identification code. Use the **X-Bicfi** to get a list of all X-BicFis.
+      description: The ASPS identification code. Use **X-Bicfi** as an identifier of the ASPSP.
       required: true
       schema:
         type: string
@@ -9505,10 +9507,16 @@ components:
       name: Digest
       in: header
       description:
-        A valid response contains a checksum of the username, the password, the given nonce value, the HTTP method, and the requested URI.
-        This ensures that the password is never sent as plain text. 
+        Hash-string of the message body. When you include a digital signature, you must also include a **Digest** header.
+        If the message does not contain a body, the **Digest** header must contain the hash of an empty bytelist. 
+        
+        
+        In case of a multipart message the same method is used to calculate the digest, 
+        i.e. a hash of the (whole) message body is calculated including all parts of the multipart message as well as the separators.
+        
 
-        The digest is only valid if the **Signature** parameter is in the header of the request.
+        The only accepted hash algorithms are SHA-256 and SHA-512.
+
       schema:
         type: string
       required: false # conditional
@@ -9518,7 +9526,11 @@ components:
       name: Signature
       in: header
       description: |
-        A signature request by the TPP on application level. This can be required by the ASPSP.
+        A digital signature on application level. The ASPSP may require you to sign request messages in the HTTP header. 
+        The **Signature** is a base 64 encoded digital signature.
+        
+        When you include a digital signature, you must also include a **Digest** header, containting the hash string.
+       
       schema:
         type: string
       required: false # conditional
@@ -9531,7 +9543,7 @@ components:
       name: TPP-Signature-Certificate
       in: header
       description: |
-        The certificate used for signing the request, in base64 encoding. If the **Signature** parameter is contained, the **TPP-Signature-Certificate** parameter must be used.
+        The certificate used for signing the request. When you include a digital signature, you must also include a **TPP-Signature-Certificate** header.
       schema:
         type: string
         format: byte
@@ -9783,7 +9795,7 @@ components:
       name: PSU-User-Agent
       in: header
       description: |
-        The forwarded Agent header field of the HTTP request between the PSU and the TPP, if available.
+        The forwarded Agent header field of the HTTP request from the PSU. This can be the browser and version.
       schema:
         type: string
       required: false
@@ -9826,7 +9838,7 @@ components:
       name: PSU-Geo-Location
       in: header
       description: |
-         The geographic location of the PSU.
+         The geographic location of the PSU. The format syntax is latitude ; longitude.
       schema:
         type: string
         pattern: 'GEO:-?[0-9]{1,2}\.[0-9]{6};-?[0-9]{1,3}\.[0-9]{6}'
@@ -9841,7 +9853,7 @@ components:
       name: isoCountryCodes
       in: query
       description: |
-       ASPSP country code. Use **isoCountryCodes** to list ASPSPs by country.
+        ASPSP ISO country codes. Use **isoCountryCodes** to list supported ASPSPs by country.
       required: false
       schema:
         $ref: "#/components/schemas/isoCountryCodes"
@@ -9851,7 +9863,7 @@ components:
       name: cityIds
       in: query
       description: |
-        ASPSP city ID. Use **cityIds** to list ASPSPs by city.
+        ASPSP city IDs. Use **cityIds** to list supported ASPSPs by city.
       required: false
       schema:
         $ref: "#/components/schemas/cityIds"
@@ -9861,7 +9873,7 @@ components:
       name: city-id
       in: path
       description: |
-        ASPSP cityID. Use **city-ID** to list the supported ASPSPs by city.
+        ASPSP city ID. Use **city-ID** as an identifier of the ASPSP city.
       required: true
       schema:
         type: string
@@ -9872,7 +9884,7 @@ components:
       name: isoCountryCode
       in: path
       description: |
-        The ISO Country Code. Use the **countryIdsQuery** parameter to get a list of all countries with ISO country codes. 
+        ASPSP ISO country code. Use **isoCountryCode** as an identifier of the ASPSP country.
       required: true
       schema:
         pattern: "^[a-zA-Z]{2,2}$"
@@ -9883,7 +9895,7 @@ components:
       name: bicFi
       in: path
       description: |
-        <a name="bicFi">The ASPSP identification code. Use **bicFi** to identify the ASPSP in the endpoints.
+        <a name="bicFi">The ASPSP identification code. Use **bicFi** as an identifier of the ASPSP.</a>
       required: true
       schema:
         pattern: "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
@@ -12654,7 +12666,7 @@ tags:
   - name: Consent Service
     description: |
      <a name="Consent">Consent Service
-      * Create and authorise consent between the PSU and the TPP
+      * Create and authorise consent
       * Get consent status
       * List previously authorised consents
 
