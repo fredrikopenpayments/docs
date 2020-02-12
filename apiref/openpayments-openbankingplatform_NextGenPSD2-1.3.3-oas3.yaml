@@ -23,7 +23,7 @@ info:
 
     * Create and authorize consent between the PSU and the TPP
     * Get consent status 
-    * Get previously authorized consents
+    * Get previously authorised consents
 
      <h2><a href="#PIS">Payment Initiation Service (PIS)</a></h2>
 
@@ -424,39 +424,96 @@ paths:
   : post:
       summary: Start Payment Initiation Authorisation Process
       description: |
-        Create an authorisation sub-resource and start the authorisation process. 
-        The message might in addition transmit authentication and authorisation related data. 
+        This endpoint initiates a payment authorisation process to handle the PSU authorisation.
+        
+        The following SCA methods are supported:
 
-        This method is iterated n times for a n times SCA authorisation in a 
-        corporate context, each creating an own authorisation sub-endpoint for 
-        the corresponding PSU authorising the transaction.
+        * signing a group of transactions with one authorisation, as in online banking
 
-        The ASPSP might make the usage of this access method unnecessary in case 
-        of only one SCA process needed, since the related authorisation resource 
-        might be automatically created by the ASPSP after the submission of the 
-        payment data with the first POST payments/{payment-product} call.
+        * signing one transaction with multi-level SCA, that is, authorisation by more than one PSU, e.g. in a corporate context
+        
+        * signing a group of transactions with multi-level SCA, that is, authorised by more than one PSU, e.g. in a corporate context
 
-        The start authorisation process is a process which is needed for creating a new authorisation 
-        or cancellation sub-resource. 
+
+        To support this, the resources resulting from the submission of payment data are separated from the
+        authorisation (sub-)resources. This means that if a payment is signed *n* times, the consent resource will have *n* SCA (sub-)resources.
+
+        ### Basket authorisation
+        The optional function to group several transactions and sign with one common authorisation is supported by the signing-baskets endpoint. 
+        
+
+        This means that you can submit consent data without starting the authorisation. When all consent resources are grouped, the authorisation is started.
+        
+        This results in a basket authorisation resource with the corresponding authorisation sub-resource.
+
+        The signing basket gets the status 'authorised' when all grouped transactions have been successfully authorised. 
+        
+        
+        A transaction with less authorisation requirements in the basket can be authorised before the total basket is signed. 
+
+
+        In addition, single transactions of the signing basket can be authorised with additional SCAs directly on transaction level. 
+        
+        ## Optimisation process for the submission of single payments
+
+        When initiating a payment, you start either of the two sub-processes; creating a signing basket or submitting a consent. 
+
+
+        A payment initiation of a sepa credit transfer results in:
+        
+
+        ```POST /payments/sepa-credit-transfers {payment data}```
+        
+
+        which is generating the payment resource and returns ``paymentId`` as a resource identification.
+
+      
+        The resource ``POST /payments/sepa-credit-transfers/paymentId/authorisations`` starts the authorisation process. 
+        An authorisation sub-resource is created with an **authorisationId** to address this sub-resource.
+
+
+        Applying this requirement to all authorisations of transactions e.g. 
+        in the Redirect SCA Approach would significantly increase the calls on the resulting API. 
+
+
+        For this reason, this specification still enables the ASPSP to directly start e.g. a
+        Redirect SCA processing after the submission of a payment or a consent, 
+        if no other data from the TPP has to be submitted anyhow. 
+
+
+        In this case, the ASPSP will create the related authorisation sub-resources automatically 
+        and will give access to these sub-resources to the TPP by returning corresponding hyperlinks, cp. 
+        
+        As a consequence, the authorisation status would still result by submitting the command
+         
+         
+        ```GET /payments/sepa-credit- transfers/paymentId/authorisations/authorisationId```
+        
+        
+        where the authorisation resource with identification authorisationId has been created by the ASPSP implicitly.
+
+
+        In some cases, the related authorisation resource is automatically created by the ASPSP after the submission of the consent data with the first POST consents call.
 
         This applies in the following scenarios:
 
-          * The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding Payment 
-            Initiation Response that an explicit start of the authorisation process is needed by the TPP. 
-            The 'startAuthorisation' hyperlink can transport more information about data which needs to be 
-            uploaded by using the extended forms.
-            * 'startAuthorisationWithPsuIdentfication', 
-            * 'startAuthorisationWithPsuAuthentication' 
-            * 'startAuthorisationWithEncryptedPsuAuthentication'
-            * 'startAuthorisationWithAuthentciationMethodSelection' 
-          * The related payment initiation cannot yet be executed since a multilevel SCA is mandated.
-          * The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding 
-            Payment Cancellation Response that an explicit start of the authorisation process is needed by the TPP. 
-            The 'startAuthorisation' hyperlink can transport more information about data which needs to be uploaded 
-            by using the extended forms as indicated above.
-          * The related payment cancellation request cannot be applied yet since a multilevel SCA is mandate for 
-            executing the cancellation.
-          * The signing basket needs to be authorised yet.
+        *  The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding PIR that an explicit start of the authorisation process with additional data is required by the TPP.
+           This can be uploaded by using the following extensions:
+
+          * 'startAuthorisationWithPsuIdentfication'
+
+          * 'startAuthorisationWithPsuAuthentication' 
+
+          * 'startAuthorisationWithEncryptedPsuAuthentication'
+
+          * 'startAuthorisationWithAuthentciationMethodSelection' 
+
+        * The related payment initiation cannot yet be executed since a multilevel SCA is required.
+
+        * The related payment cancellation request cannot be applied yet since a multilevel SCA is required to 
+            execute the cancellation.
+
+        * The signing basket needs to be authorised.
       operationId: startPaymentAuthorisation
       tags:
         - Payment Initiation Service (PIS)
@@ -1726,9 +1783,9 @@ paths:
     post:
       summary: Create Consent
       description: |
-        This endpoint defines the access rights to the PSU accounts and creates a consent ID, **consentID**, which is used to initiate the consent process.
+        This endpoint defines the access rights to the PSU accounts and creates a **consent ID**, which is used to initiate the consent process.
         
-        If a consent already exists, it will expire as soon as the new consent request is authorized by the PSU (**recurringIndicator** equals "true").      
+        If a consent already exists, it will expire as soon as the new consent request is authorised by the PSU (**recurringIndicator** equals "true").      
         
         Optionally, the ASPSP accepts a command:
        
@@ -1905,7 +1962,7 @@ paths:
 
     delete:
       summary: Delete Consent
-      description: Delete an account information consent resource.
+      description: Delete a consent.
       operationId: deleteConsent
       tags:
         - Consent Service
@@ -2060,29 +2117,83 @@ paths:
     post:
       summary: Start Consent Authorisation Process
       description: |
-        Create an authorisation sub-resource and start the consent authorisation process. 
+        This endpoint initiates an authorisation process to handle the PSU authorisation.
+        
+        The following SCA methods are supported:
 
-        The message might in addition transmit authentication and authorisation related data.
+        * signing a group of transactions with one authorisation, as in online banking
 
-        This method is iterated n times for a n times SCA authorisation in a 
-        corporate context, each creating an own authorisation sub-endpoint for 
-        the corresponding PSU authorising the consent.
+        * signing one transaction with multi-level SCA, that is, authorisation by more than one PSU, e.g. in a corporate context
+        
+        * signing a group of transactions with multi-level SCA, that is, authorised by more than one PSU, e.g. in a corporate context
 
-        The ASPSP might make the usage of this access method unnecessary, 
-        since the related authorisation resource will be automatically created by 
-        the ASPSP after the submission of the consent data with the first POST consents call.
 
-        The start authorisation process is a process which is needed for creating a new authorisation 
-        or cancellation sub-resource. 
+        To support this, the resources resulting from the submission of consent data are separated from the
+        authorisation (sub-)resources. This means that if a consent is signed *n* times, the consent resource will have *n* SCA (sub-)resources.
+
+        ### Basket authorisation
+        The optional function to group several transactions and sign with one common authorisation is supported by the signing-baskets endpoint. 
+        
+
+        This means that you can submit consent data without starting the authorisation. When all consent resources are grouped, the authorisation is started.
+        
+        This results in a basket authorisation resource with the corresponding authorisation sub-resource.
+
+        The signing basket gets the status 'authorised' when all grouped transactions have been successfully authorised. 
+        
+        
+        A transaction with less authorisation requirements in the basket can be authorised before the total basket is signed. 
+
+
+        In addition, single transactions of the signing basket can be authorised with additional SCAs directly on transaction level. 
+        
+        ## Optimisation process for the submission of single payments
+
+        When initiating a payment, you start either of the two sub-processes; creating a signing basket or submitting a consent. 
+
+
+        A payment initiation of a sepa credit transfer results in:
+        
+
+        ```POST /payments/sepa-credit-transfers {payment data}```
+        
+
+        which is generating the payment resource and returns ``paymentId`` as a resource identification.
+
+      
+        The resource ``POST /payments/sepa-credit-transfers/paymentId/authorisations`` starts the authorisation process. 
+        An authorisation sub-resource is created with an **authorisationId** to address this sub-resource.
+
+
+        Applying this requirement to all authorisations of transactions e.g. 
+        in the Redirect SCA Approach would significantly increase the calls on the resulting API. 
+
+
+        For this reason, this specification still enables the ASPSP to directly start e.g. a
+        Redirect SCA processing after the submission of a payment or a consent, 
+        if no other data from the TPP has to be submitted anyhow. 
+
+
+        In this case, the ASPSP will create the related authorisation sub-resources automatically 
+        and will give access to these sub-resources to the TPP by returning corresponding hyperlinks, cp. 
+        
+        As a consequence, the authorisation status would still result by submitting the command
+         
+         
+        ```GET /payments/sepa-credit- transfers/paymentId/authorisations/authorisationId```
+        
+        
+        where the authorisation resource with identification authorisationId has been created by the ASPSP implicitly.
+
+
+        In some cases, the related authorisation resource is automatically created by the ASPSP after the submission of the consent data with the first POST consents call.
 
         This applies in the following scenarios:
 
-        * The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding Payment 
-            Initiation Response that an explicit start of the authorisation process is needed by the TPP. 
-            The 'startAuthorisation' hyperlink can transport more information about data which needs to be 
-            uploaded by using the extended forms.
+        *  The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding PIR that an explicit start of the authorisation process with additional data is required by the TPP.
+           This can be uploaded by using the following extensions:
 
-          * 'startAuthorisationWithPsuIdentfication', 
+          * 'startAuthorisationWithPsuIdentfication'
 
           * 'startAuthorisationWithPsuAuthentication' 
 
@@ -2090,18 +2201,13 @@ paths:
 
           * 'startAuthorisationWithAuthentciationMethodSelection' 
 
-        * The related payment initiation cannot yet be executed since a multilevel SCA is mandated.
+        * The related payment initiation cannot yet be executed since a multilevel SCA is required.
 
-        * The ASPSP has indicated with an 'startAuthorisation' hyperlink in the preceding 
-            Payment Cancellation Response that an explicit start of the authorisation process is needed by the TPP. 
-            The 'startAuthorisation' hyperlink can transport more information about data which needs to be uploaded 
-            by using the extended forms as indicated above.
+        * The related payment cancellation request cannot be applied yet since a multilevel SCA is required to 
+            execute the cancellation.
 
-        * The related payment cancellation request cannot be applied yet since a multilevel SCA is mandate for 
-            executing the cancellation.
-
-        * The signing basket needs to be authorised yet.
-
+        * The signing basket needs to be authorised.
+        
       operationId: startConsentAuthorisation
       tags:
         - Consent Service
@@ -9323,7 +9429,8 @@ components:
     authorisationId:
       name: authorisationId
       in: path
-      description: Resource identification of the related SCA.
+      description: This ID is created when an authorisation process is initiated. 
+       Use **authorisationId** as an identifier of the authorisation.
       required: true
       schema:
         $ref: "#/components/schemas/authorisationId"
@@ -9362,7 +9469,7 @@ components:
       name:  consentId
       in: path
       description: |
-        This ID is created when a consent is created. Use **consentID** as an identifier of the consent.
+        This ID is created when a consent is created. Use **consentId** as an identifier of the consent.
       required: true
       schema:
         $ref: "#/components/schemas/consentId"
@@ -9512,7 +9619,7 @@ components:
         
         
         In case of a multipart message the same method is used to calculate the digest, 
-        i.e. a hash of the (whole) message body is calculated including all parts of the multipart message as well as the separators.
+        i.e. a hash of the message body is calculated including all parts of the multipart message as well as the separators.
         
 
         The only accepted hash algorithms are SHA-256 and SHA-512.
@@ -9804,13 +9911,7 @@ components:
       name: PSU-Http-Method
       in: header
       description: |
-        HTTP method used at the PSU or TPP interface, if available.
-        Valid values are:
-        * GET
-        * POST
-        * PUT
-        * PATCH
-        * DELETE
+        HTTP method used at the PSU or TPP interface.
       schema:
         type: string
         enum:
@@ -9825,9 +9926,11 @@ components:
       name: PSU-Device-ID
       in: header
       description: |
-        UUID (Universally Unique Identifier) for a device, which is used by the PSU, if available.
+        UUID (Universally Unique Identifier) for a PSU device.
+        
+        
         UUID identifies either a device or a device dependant application installation.
-        In case of an installation identification this ID needs to be unaltered until removal from device.
+        An installation identification ID must be unaltered until removal from device.
       schema:
         type: string
         format: uuid
