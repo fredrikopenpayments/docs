@@ -35,20 +35,24 @@ info:
     The Open Payments Platform integrates with financial institutes, referred to as Account Servicing Payment Service Providers (ASPSPs). 
     As a developer you are referred to as a Third party Payment Provider (TPP) and the end user is known as a Payment Services User (PSU).
 
-    ## Basic flows
+    ## Basic flow
     1. Get a token and set the scope to either AccountInformation (for AIS) or PaymentInitiation (for PIS).
     
     2. Use the ASPSIS api to get ASPSP details, to be used in the other endpoints.
 
     3. Create consent for:
-        - accounts
-        - balances
-        - transactions
+      * accounts
+      * balances
+      * transactions
 
-    4. Authorise consent with SCA scope:
-        - OAuth SCA scope - The TPP asks the PSU to authenticate. The TPP is given a URL of an OAuth 2 authorization endpoint hosted by the ASPSP.
-        - Redirect SCA scope - The TPP asks the PSU to authenticate. A predefined address is used to redirect the user to the ASPSP user interface, where the SCA is done between the PSU and the ASPSP. 
-        - Decoupled SCA scope - A predefined address is used to redirect the user to the ASPSP user interface, where the ASPSP asks the PSU to authenticate and the SCA is done between the PSU and the ASPSP.
+    4. Authorise consent with <a name="SCA">SCA Scopes</a>:
+      * **OAuth SCA scope** - The TPP asks the PSU to authenticate. The TPP is given a URL of an OAuth 2 authorization endpoint hosted by the ASPSP.
+
+
+      * **Redirect SCA scope** - The TPP asks the PSU to authenticate. A predefined address is used to redirect the user to the ASPSP user interface, where the SCA is done between the PSU and the ASPSP. 
+
+
+      * **Decoupled SCA scope** - A predefined address is used to redirect the user to the ASPSP user interface, where the ASPSP asks the PSU to authenticate and the SCA is done between the PSU and the ASPSP.
 
     5. Use PIS or AIS endpoints.
 
@@ -2119,7 +2123,7 @@ paths:
       description: |
         This endpoint initiates an authorisation process to handle the PSU authorisation.
         
-        The following SCA methods are supported:
+        The following <a href="#SCA">SCA</a> methods are supported:
 
         * signing a group of transactions with one authorisation, as in online banking
 
@@ -2132,7 +2136,7 @@ paths:
         authorisation (sub-)resources. This means that if a consent is signed *n* times, the consent resource will have *n* SCA (sub-)resources.
 
         ### Basket authorisation
-        The optional function to group several transactions and sign with one common authorisation is supported by the signing-baskets endpoint. 
+        The optional function to group several transactions and sign one common authorisation is supported by the signing-baskets endpoint. 
         
 
         This means that you can submit consent data without starting the authorisation. When all consent resources are grouped, the authorisation is started.
@@ -2147,7 +2151,7 @@ paths:
 
         In addition, single transactions of the signing basket can be authorised with additional SCAs directly on transaction level. 
         
-        ## Optimisation process for the submission of single payments
+        ### Optimisation process for the submission of single payments
 
         When initiating a payment, you start either of the two sub-processes; creating a signing basket or submitting a consent. 
 
