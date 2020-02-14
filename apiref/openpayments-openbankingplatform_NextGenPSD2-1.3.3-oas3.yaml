@@ -8,8 +8,15 @@ info:
   version: "1.3.3"
   description: |
     # About the APIs
-    <h2><a href="#AIS">Account Information Service (AIS)</a></h2>
+    The Open Payment APIs are based of the NextGenPSD2 XS2A Specification, which defines a PSD2 standard for the XS2A Interface.
+    Open payments APIs faciliate the interaction between your customers and the financial insitutes.
+    
+    
+    In this API ref it is presumed that you are the client, i.e. all API calls are initiated by you. 
+    
+    The following APIs and features are available:
 
+    <h2><a href="#AIS">Account Information Service (AIS)</a></h2>
     * Account transaction reports - including balances
     * Card transaction reports - including balances
     * Account balances
@@ -20,43 +27,36 @@ info:
     * Card account details
 
     <h2><a href="#Consent">Consent Service</a></h2>
-
     * Create and authorize consent between the PSU and the TPP
     * Get consent status 
     * Get previously authorised consents
 
      <h2><a href="#PIS">Payment Initiation Service (PIS)</a></h2>
-
     * Initiate payments
     * Update payments
     * Get payment status information
 
-    ## Terminology
+    ## Basic terminology
     The Open Payments Platform integrates with financial institutes, referred to as Account Servicing Payment Service Providers (ASPSPs). 
-    As a developer you are referred to as a Third party Payment Provider (TPP) and the end user is known as a Payment Services User (PSU).
+    As a developer you are referred to as a Third Party Provider (TPP) and the end user is known as a Payment Services User (PSU).
 
     ## Basic flow
-    1. Get a token and set the scope to either AccountInformation (for AIS) or PaymentInitiation (for PIS).
+    1. Get a client id and password in the Developer portal.
+
+    1. During Authentication, set the scope to either AccountInformation (for AIS) or PaymentInitiation (for PIS) to get the token.
     
-    2. Use the ASPSIS api to get ASPSP details, to be used in the other endpoints.
+    1. Use the ASPSIS api to get ASPSP details which can be used in the other APIs.
 
-    3. Create consent for:
-      * accounts
-      * balances
-      * transactions
+    1. Create consent for:
+        * accounts
+        * balances
+        * transactions
 
-    4. Authorise consent with <a name="SCA">SCA Scopes</a>:
-      * **OAuth SCA scope** - The TPP asks the PSU to authenticate. The TPP is given a URL of an OAuth 2 authorization endpoint hosted by the ASPSP.
+    1. Authorise consent.
 
+    1. Use PIS or AIS endpoints.
 
-      * **Redirect SCA scope** - The TPP asks the PSU to authenticate. A predefined address is used to redirect the user to the ASPSP user interface, where the SCA is done between the PSU and the ASPSP. 
-
-
-      * **Decoupled SCA scope** - A predefined address is used to redirect the user to the ASPSP user interface, where the ASPSP asks the PSU to authenticate and the SCA is done between the PSU and the ASPSP.
-
-    5. Use PIS or AIS endpoints.
-
-    # Authentication
+    ## Authentication
     Open Payments Platform uses OAuth2 OpenID Connect for authentication.
 
    
@@ -1787,10 +1787,14 @@ paths:
     post:
       summary: Create Consent
       description: |
-        This endpoint defines the access rights to the PSU accounts and creates a **consent ID**, which is used to initiate the consent process.
-        
-        If a consent already exists, it will expire as soon as the new consent request is authorised by the PSU (**recurringIndicator** equals "true").      
-        
+        This endpoint creates a resource, **consent ID**, which is used to initiate the consent process.
+            
+        ##Side Effects
+
+        When this Consent Request is a request where the "recurringIndicator" equals "true", and if it exists already a former consent 
+        for recurring access on account information for the addressed PSU, then the former consent automatically expires as soon as the new consent 
+        request is authorised by the PSU.
+
         Optionally, the ASPSP accepts a command:
        
         * to get a list of available payment accounts 
@@ -2943,6 +2947,7 @@ components:
 
         If you are already familiar with the APIs and ready to go, use the Production environment to integrate with the banks´
         Production platforms.
+        
       type: oauth2
       flows:
         clientCredentials:
@@ -9761,7 +9766,7 @@ components:
       name: TPP-Notification-Content-Preferred
       in: header
       description: |
-        The string has the form 
+        The string consists of
 
         status=X1, ..., Xn
 
