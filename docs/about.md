@@ -7,7 +7,7 @@ sidebar_label: The Open Payment Platform
 ## Release notes
 ### Open Payments version 1-0-0 
 
-This release allows you to access your consumer’s account information data or initiate transfers. 
+This release allows you to access your consumer’s account information data or initiate transfers. test
 
 ## About
 Open Payments Platform marks a milestone in the emerging space of Open Banking as we now can offer our customer the full scope of PSD2, covering private accounts for all [supported banks](banks.md). 
