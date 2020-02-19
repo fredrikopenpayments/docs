@@ -17,6 +17,8 @@ Note! The Embedded SCA Approach is N/A.
 The payment initiation flow depends on the SCA approach implemented by the ASPSP. 
 The following example flows can vary depending on the APSP implementation.
 
+# Payment initiation flows
+
 ##  Redirect SCA Approach
 ### Explicit start of the authorisation process
 1. The PSU initiates a payment.
@@ -29,6 +31,8 @@ The following example flows can vary depending on the APSP implementation.
 1. The PSU is then redirected to the TPP.
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
+
+
     ![Flow](img/flow1.png)
 
 
@@ -48,6 +52,9 @@ In addition to the Explicit start of the authorisation process, an authorisation
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
 
+
+    ![Flow](img/flow2.png)
+
 ### Implicit start of the authorisation process
 ASPSPs might start the authorisation process implicitly in case of no additional data is needed from the TPP. This optimisation process results in the following flow (which is exactly the Redirect SCA Approach flow from the version 1.0 and 1.1 of the Implementation Guideline before authorisation sub-resources have been established). In this case, the redirection of the PSU browser session happens directly after the Payment Initiation Response. In addition an SCA status request can be sent by the TPP to follow the SCA process.
 
@@ -61,7 +68,10 @@ ASPSPs might start the authorisation process implicitly in case of no additional
 1. The PSU is then redirected to the TPP.
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
- 
+
+
+    ![Flow](img/flow3.png)
+
 ### Implicit start of the authorisation processs with confirmation code
 In addition to the scenario above, an authorisation confirmation request might be requested by the ASPSP from the TPP after the session is re-redirected to the TPP’s system and after the TPP's control on session fixation. In the end, a payment status request might be needed by the TPP to control the exact status of the payment initiation:
 1. The PSU initiates a payment.
@@ -76,6 +86,8 @@ In addition to the scenario above, an authorisation confirmation request might b
     1. A  Transaction Authorisation Confirmation Respond is sent by the ASPSP to the TPP.
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
+
+    ![Flow](img/flow4.png)
 
 ## OAuth2 SCA Approach
 ### Implicit Start of the Authorisation Process
@@ -96,11 +108,15 @@ If the ASPSP supports the OAuth2 SCA Approach, the flow is very similar to the R
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
 
+    ![Flow](img/flow5.png)
+
 ### Implicit start of the authorisation process
 In addition to the scenario above, an authorisation confirmation request might be requested by the ASPSP from the TPP after the session is re-redirected to the TPP’s system and after the TPP's control on session fixation. In the end, a payment status request might be needed by the TPP to control the exact status of the payment initiation.
 
 
 Note! The OAuth2 SCA Approach with explicit start of the Authorisation Process and with transaction confirmation step is treated analogously.
+
+![Flow](img/flow6.png)
 
 ## Decoupled SCA Approach
 ### Implicit start of the authorisation process
@@ -108,6 +124,8 @@ The transaction flow in the Decoupled SCA Approach is similar to the Redirect SC
 After the SCA having been processed between ASPSP and PSU, the TPP then needs to ask for the result of the transaction. In the following, a flow with an implicit start of the authorisation process is shown:
 
 The ASPSP pushes the challenge to an authorisation app and requests a strong customer authentication (SCA) PSU to ASPSP Interface.
+
+![Flow](img/flow7.png)
 
 ## Embedded SCA Approach 
 ### Embedded SCA without SCA method (e.g. Creditor in exemption list)
