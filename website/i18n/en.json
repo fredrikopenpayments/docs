@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Join the Open Banking Revolution",
     "docs": {
+      "about": {
+        "title": "The Open Payment Platform",
+        "sidebar_label": "The Open Payment Platform"
+      },
       "ais": {
         "title": "How to use the AIS API",
         "sidebar_label": "How to use the AIS API"
@@ -29,6 +33,14 @@
         "title": "SEB (ESSESESS)",
         "sidebar_label": "SEB"
       },
+      "examples": {
+        "title": "Get started with Examples",
+        "sidebar_label": "Get started with Examples"
+      },
+      "getstarted": {
+        "title": "Quickstart",
+        "sidebar_label": "Quickstart"
+      },
       "glossary": {
         "title": "Glossary",
         "sidebar_label": "Glossary"
@@ -41,6 +53,10 @@
         "title": "Introduction",
         "sidebar_label": "Introduction"
       },
+      "methods": {
+        "title": "Concepts",
+        "sidebar_label": "Concepts"
+      },
       "ndeasess": {
         "title": "Nordea (NDEASESS)",
         "sidebar_label": "Nordea"
@@ -49,9 +65,21 @@
         "title": "How to use the PIS API",
         "sidebar_label": "How to use the PIS API"
       },
+      "postman": {
+        "title": "Get started with Postman",
+        "sidebar_label": "Get started with Postman"
+      },
+      "SCA": {
+        "title": "SCA",
+        "sidebar_label": "SCA"
+      },
       "swedsess": {
         "title": "Swedbank (SWEDSESS)",
         "sidebar_label": "Swedbank"
+      },
+      "theapis": {
+        "title": "The APIs",
+        "sidebar_label": "The APIs"
       },
       "version-1.0.0/version-1.0.0-ais": {
         "title": "How to use the AIS API",
