@@ -17,8 +17,6 @@ Note! The Embedded SCA Approach is N/A.
 The payment initiation flow depends on the SCA approach implemented by the ASPSP. 
 The following example flows can vary depending on the APSP implementation.
 
-# Payment initiation flows
-
 ##  Redirect SCA Approach
 ### Explicit start of the authorisation process
 1. The PSU initiates a payment.
@@ -148,9 +146,12 @@ In case the ASPSP is starting the payment initiation flow with the Embedded SCA 
 In case the ASPSP needs to decide between the Decoupled and the Redirect SCA approach, the ASPSP also might first offer the SCA methods available to the PSU and then branch after the selection of the PSU into the Decoupled or Redirect SCA Approach.
 
 ## Multi level SCA Approach
-### Example of the Redirect SCA Approach
-The multilevel SCA Approach supports the authorisation of a payment by several users, e.g. in a 4 eyes principle authorisation. Multilevel SCA are always handled with Explicit start of the several Authorisation Mechanisms. In the following the flow for a 4 eyes principle authorisation is shown, where both SCA are performed by redirect.
+The multilevel SCA Approach supports the authorisation of a payment by several users. 
 
+Multilevel SCA are always handled with explicit start of the authorisations. In the following example, the redirect SCA is used.
+
+### Example of multilevel Redirect SCA approach
+![Flow](img/flow8.png)
 1. The PSU initiates a payment.
     1. TPP sends a Payment Initiation Request (PIR) to the ASPSP.
     1. The ASPSP validates the PIR.
@@ -168,6 +169,5 @@ The multilevel SCA Approach supports the authorisation of a payment by several u
 1. The PSU is then redirected to the TPP.
     1. A Payment Status Request is sent by the TPP to the ASPSP.
     1. A Payment Status Respond is sent by the ASPSP to the TPP.
-
 
     Note! This flow is not depending on the SCA Approach. Multilevel SCA transactions are performed by using n times the Start Authorisation Request for n times SCA, where the corresponding SCA flow is replacing the Redirect SCA flow above. These SCA processes could also be performed simultaneously.
