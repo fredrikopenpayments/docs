@@ -21,7 +21,11 @@ In this section, we go through some terminology used in this documentation to av
 | BICFI | Valid BICs for financial institutions are registered by the ISO 9362 Registration Authority in the BIC directory, and consist of eight (8) or eleven (11) contiguous characters. |
 | client_id | Unique identifier for the application. |
 | client_secret | The applications password. |
+| Currency Code | Codes following ISO 4217 Alpha 3 | 
+| Country Code | Two characters as defined by ISO 3166 | 
 | EBA | The European Banking Authority develops Regulatory Technical Standards which are submitted to the European Commission for endorsement. Regulatory Technical Standards are a set of detailed compliance criteria set for all parties that cover areas such as data security, legal accountability and other processes. |
+| ISODateTime | A particular point in the progression of time defined by a mandatory date and a mandatory time component, expressed in either UTC time format (YYYY-MM-DDThh:mm:ss.sssZ), local time with UTC offset format (YYYY-MM- DDThh:mm:ss.sss+/-hh:mm), or local time format (YYYY-MMDDThh:mm:ss.sss). These representations are defined in "XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004" which is aligned with ISO 8601. | 
+ | ISODate | A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format. | 
 | OAuth2 | OAuth 2.0 is the industry-standard protocol for authorization. [See more info](https://oauth.net/2/) | 
 | OBIE | The Open Banking Implementation Entity is the delivery organisation working with the CMA9 and other stakeholders to define and develop the required APIs, security and messaging standards that underpin Open Banking. Otherwise known as Open Banking Limited. |
 | OpenID Connect | OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner. |

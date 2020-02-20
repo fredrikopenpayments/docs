@@ -146,7 +146,7 @@ The ASPSP pushes the challenge to an authorisation app and requests a SCA PSU to
 1. A Payment Status Request is sent by the TPP to the ASPSP.
 1. A Payment Status Respond is sent by the ASPSP to the TPP.
 
-## Embedded SCA Approach 
+## Embedded SCA approach 
 Note! This SCA is N/A.
 
 ### Embedded SCA without SCA method

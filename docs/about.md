@@ -3,14 +3,11 @@ id: about
 title: The Open Payment Platform
 sidebar_label: The Open Payment Platform
 ---
-## News!
-## Release notes
-### Open Payments version 1-0-0 
-
-This release allows you to access your consumer’s account information data or initiate transfers. 
-
 ## About
+
 Open Payments Platform marks a milestone in the emerging space of Open Banking as we now can offer our customer the full scope of PSD2, covering private accounts for all [supported banks](banks.md). 
+
+![Flow](img/open.png)
 
 Whether you are building a FinTech or accounting app, E-commerce business, ERP software, or managing a subscription service of any kind, Open Payments will connect you to banks in Europe through one unified API.
 We have integrated our platform with the banks' APIs and regardless of version or standard, we present a unified API to you.
