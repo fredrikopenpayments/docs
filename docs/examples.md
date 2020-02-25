@@ -3,8 +3,6 @@ id: examples
 title: Get started with Examples
 sidebar_label: Get started with Examples
 ---
-
-
 Get started with Examples
 ===========
 
