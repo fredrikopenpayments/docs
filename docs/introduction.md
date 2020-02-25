@@ -6,16 +6,9 @@ sidebar_label: Introduction
 ## News!
 ## Release notes
 ### Open Payments version 1-0-0 
-
 This release allows you to access your consumer’s account information data or initiate transfers. 
 
 
-
-## Open Payments Platform
-
-Open Payments Platform marks a milestone in the emerging space of Open Banking as we now can offer our customer the full scope of PSD2, covering private accounts for all [supported banks](banks.md). This release allows you to access your consumer’s account information data or initiate transfers. 
-
-The documentation cover general information on our platform as well as specific information you will need to successfully integrate your solution and your customer journey with our REST API. We welcome developers to dig in and start making revolutionary new solutions, tools and services using our unified API.
 
 Whether you are building a FinTech or accounting app, E-commerce business, ERP software, or managing a subscription service of any kind, Open Payments will connect you to banks in Europe through one unified API.
 
@@ -23,7 +16,6 @@ Whether you are building a FinTech or accounting app, E-commerce business, ERP s
 
 In our previous releases we only offered integration with the sandbox environment for banks. From now and going forward you will be able to, if you are a customer of ours, initiate payments, transfer of funds and collect payment data for your clients – with their approval of course. In this release you will be able to work with accounts owned by private individuals
 
-### What can you do?
 
 We have integrated our platform with the bank’s APIs, and no matter their version or standard of API we present a unified API to you. The service is white labeled, meaning you own your customers journey. You integrate with our unified REST API providing you with access to the payment rails. How you decide to present the customer-journey to your client is your choice and your brand. We provide a way to handle authorization of a payment or access to account information from behind the scene. 
 

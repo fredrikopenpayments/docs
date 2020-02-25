@@ -24,17 +24,9 @@ Available `AUTH_HOST` values
 | Sandbox | https://auth.sandbox.openbankingplatform.com |
 | Production | https://auth.openbankingplatform.com |
 
-Available `API_HOST` values
-
-| Environment | URL |
-| --- | --- |
-| Sandbox | https://api.sandbox.openbankingplatform.com |
-| Production | https://api.openbankingplatform.com |
 
 
 ## 3. Integrate 
-
-* ### Get started with [Postman](https://www.getpostman.com)
 
 [Download](https://docs.openpayments.io/obp.postman_collection.json) our Postman Collection with ready made API calls. 
 

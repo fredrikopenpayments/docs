@@ -3,7 +3,6 @@ id: SCA
 title: SCA
 sidebar_label: SCA
 ---
-
 # Strong Customer Authentication (SCA) approaches
 The API design differs across the various SCA approaches:
 

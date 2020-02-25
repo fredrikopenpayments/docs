@@ -242,15 +242,3 @@ The list of **global payment products** is generic payments products that we sup
 The list of **payment products** is specifically for the bank at hand. When using one of these you have to send payment information in a format the bank will accept. 
 
 Read more about the [payment initiation](pis.md) API.
-
-
-## Flows of usage
-
-The APIs in this product does not interface directly with the banks but provide information to be able to access banks dynamically. We will add banks continuously and if you get the list of banks from this API you will get access to these new banks automatically without the need to do any coding. 
-
-A typical flow in the system may be like this:
-1. the user is presented a list of supported countries
-2. the user select a country
-3. the system retrieves a list of banks for that country
-4. the user selects its bank
-5. the system moves on to one of the other APIs to get account information or to initiate a payment

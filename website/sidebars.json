@@ -4,8 +4,6 @@
       "introduction",
       "theapis"
       "banks",
-      "authentication"
-      "postman"
       "glossary"    
     ],
     "Tutorials": [
@@ -14,25 +12,6 @@
       "consent",
       "ais",
       "pis"
-    ],
-    "Consent": [
-    "Payments"
-    ],
-    "Account Information": [
-    "Payments"
-    "Account Information"
-    "Consent"
-    ],
-    "Payments": [
-    "Payments"
-    "Account Information"
-    "Consent"
-    ],
-    "Customer Secure Authorisation (SCA)": [
-    "Redirect"
-    "Decoupled"
-    "Oauth2"
-    "Embedded"
     ]
   },
   "docs-other": {
