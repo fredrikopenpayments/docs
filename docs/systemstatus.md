@@ -1,7 +1,7 @@
 ---
 id: systemstatus
-title: System Status
-sidebar_label: System Status
+title: System status
+sidebar_label: System status
 ---
  At this moment we have no disturbance. (This page is under construction).
  

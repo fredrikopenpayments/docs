@@ -81,10 +81,6 @@
         "title": "Get started with Examples",
         "sidebar_label": "Get started with Examples"
       },
-      "onboarding": {
-        "title": "Onboarding",
-        "sidebar_label": "Onboarding"
-      },
       "glossary": {
         "title": "Glossary",
         "sidebar_label": "Glossary"
@@ -104,6 +100,10 @@
       "ndeasess": {
         "title": "Nordea (NDEASESS)",
         "sidebar_label": "Nordea"
+      },
+      "onboarding": {
+        "title": "Onboarding",
+        "sidebar_label": "Onboarding"
       },
       "paymentproducts": {
         "title": "Payment products",
@@ -154,7 +154,7 @@
         "sidebar_label": "Strong Customer Authentication (SCA)"
       },
       "standards": {
-        "title": "standads",
+        "title": "Standards",
         "sidebar_label": "Standards"
       },
       "swedsess": {
@@ -162,8 +162,8 @@
         "sidebar_label": "Swedbank"
       },
       "systemstatus": {
-        "title": "System Status",
-        "sidebar_label": "System Status"
+        "title": "System status",
+        "sidebar_label": "System status"
       },
       "thesolution": {
         "title": "The Open Payments solution",

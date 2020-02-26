@@ -22,9 +22,9 @@ With this service you can initiate, update, or delete payments and get payment s
 ## Before you get started
 For more information about the solution, see [The Open payments solution](theapis.md).
 
-## Stay updated with our latest System Status & Bank compliance
-Make sure to get notified if something is temporarily down, see [System Status](systemstatus.md). For a full list of bank compliance, see [ Compliance] (compliance).
+## Stay updated with our latest system status & bank compliance 
+Make sure to get notified if something is temporarily down, see [System status](systemstatus.md). For a full list of bank compliance, see [Compliance](compliance).
 
 ## Hop on!
 Start integrate and build your solution!
-Proceed to the [onboarding process](getstarted.md) and get started.
+Proceed to the [onboarding process](onboarding.md) and get started.
