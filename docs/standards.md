@@ -1,7 +1,7 @@
 ---
-id: about
-title: About
-sidebar_label: About
+id: standards
+title: standads
+sidebar_label: Standards
 ---
 ## Standards
 The first generation of Open Payments API is based on the [Berlin Groups NextGen specification](https://www.berlin-group.org/psd2-access-to-bank-accounts) which was developed to create uniform and interoperable integration between banks and TPPs.

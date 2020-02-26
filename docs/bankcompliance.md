@@ -1,9 +1,11 @@
 ---
-id: banks
-title: Supported Banks
-sidebar_label: Supported banks
+id: compliance
+title: Compliance
+sidebar_label: Compliance
 ---
- Here is a list of the currently supported banks in our sandbox and production environment. Our environments are continuously being updated with more banks and new functionality in line with what the banks release in their APIs. Please contact us to get more information about the current state. (The banks supported has currently been limited due to insufficient bank functionality, more banks will be added as this improves.)
+ This page lists all supported banks in our sandbox and production environments, which are continuously being updated with more banks and new functionality in line with the banks´ releases. For a full view of the current environment status, see [System Status](systemstatus.md).
+
+ Please contact us to get more information about the supported supported banks status. 
 
 | Status | Description |
 | --- | --- |
@@ -89,7 +91,6 @@ sidebar_label: Supported banks
     <td><a href="/docs/swedsess">Swedbank</a></td>
     <td>
         <img src="https://img.shields.io/badge/AIS-active-success.svg">
-        <img src="https://img.shields.io/badge/PIS-defect-red.svg">
     </td>
     <td>
         <img src="https://img.shields.io/badge/AIS-backlog-inactive.svg">
@@ -97,7 +98,6 @@ sidebar_label: Supported banks
     </td>
     <td>
         <img src="https://img.shields.io/badge/AIS-active-success.svg">
-        <img src="https://img.shields.io/badge/PIS-defect-red.svg">
     </td>
     <td>
         <img src="https://img.shields.io/badge/AIS-backlog-inactive.svg">

@@ -5,10 +5,6 @@
     "previous": "Previous",
     "tagline": "Join the Open Banking Revolution",
     "docs": {
-      "about": {
-        "title": "About",
-        "sidebar_label": "About"
-      },
       "ais": {
         "title": "How to use the AIS API",
         "sidebar_label": "How to use the AIS API"
@@ -65,13 +61,17 @@
         "title": "Get Country List",
         "sidebar_label": "Get Country List"
       },
-      "banks": {
-        "title": "Supported Banks",
-        "sidebar_label": "Supported banks"
+      "compliance": {
+        "title": "Compliance",
+        "sidebar_label": "Compliance"
       },
       "consent": {
         "title": "How to use the Consent API",
         "sidebar_label": "How to use the Consent API"
+      },
+      "documentation": {
+        "title": "Documentation",
+        "sidebar_label": "Documentation"
       },
       "essesess": {
         "title": "SEB (ESSESESS)",
@@ -104,6 +104,10 @@
       "ndeasess": {
         "title": "Nordea (NDEASESS)",
         "sidebar_label": "Nordea"
+      },
+      "paymentproducts": {
+        "title": "Payment products",
+        "sidebar_label": "Payment products"
       },
       "pis": {
         "title": "How to use the PIS API",
@@ -145,13 +149,21 @@
         "title": "Release notes",
         "sidebar_label": "Release notes"
       },
-      "SCA": {
+      "sca": {
         "title": "Strong Customer Authentication (SCA)",
         "sidebar_label": "Strong Customer Authentication (SCA)"
+      },
+      "standards": {
+        "title": "standads",
+        "sidebar_label": "Standards"
       },
       "swedsess": {
         "title": "Swedbank (SWEDSESS)",
         "sidebar_label": "Swedbank"
+      },
+      "systemstatus": {
+        "title": "System Status",
+        "sidebar_label": "System Status"
       },
       "thesolution": {
         "title": "The Open Payments solution",
@@ -223,6 +235,8 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
+      "About": "About",
+      "Concepts": "Concepts",
       "Tutorials": "Tutorials",
       "ASPSPIS": "ASPSPIS",
       "AIS": "AIS",

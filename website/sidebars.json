@@ -3,10 +3,20 @@
     "Getting Started": [
       "introduction",
       "thesolution",
-      "onboarding",
-      "about",
+      "onboarding"    
+    ],
+    "About": [
+      "releasenotes",
+      "systemstatus",
+      "compliance",
+      "standards",
+      "documentation",
       "banks",
       "glossary"    
+    ],
+    "Concepts": [
+      "sca",
+      "paymentproducts"   
     ],
     "Tutorials": [
       "api"

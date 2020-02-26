@@ -1,5 +1,5 @@
 ---
-id: SCA
+id: sca
 title: Strong Customer Authentication (SCA)
 sidebar_label: Strong Customer Authentication (SCA)
 ---

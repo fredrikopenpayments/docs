@@ -3,6 +3,7 @@ id: aspspgetaspspdetails
 title: Get ASPSP Details
 sidebar_label: Get ASPSP Details
 ---
+With this resource you can get the details about the ASPSP and supported [payment products](paymentproducts.md).
 
 ```javascript
 curl -X GET
@@ -12,8 +13,9 @@ curl -X GET
 ```
 
 ### Path parameter
+- `BICFI` ASPSP identifier
 
-- `BICFI` ASPSP identifier. It can be known upfront or it can be picked from the previous response.
+You can get bank details by entering the BicFi code. Get the BicFi code from the [Get ASPSP List](aspspgetaspsplist.md) resource.
 
 ### Response
 ```javascript
@@ -48,11 +50,10 @@ curl -X GET
     "logoUrl": "https://opeopenbanking.blob.core.windows.net/images/ESSESESS.jpg"
 }
 ```
+The ``companyNumber`` is equivalent to the organisation number. 
 
-This result contains contact details for the bank and information about how to access its services through Open Payments API.
+The ``globalPaymentProducts`` are supported by Open Payments for all banks. For more information about the supported payment products, see [payment products](paymentproducts.md).
 
-The list of **global payment products** is generic payments products that we support for all banks (where it makes sense). In this case the swedish bank SEB has support for domestic payments internally in Sweden and sepa payments on the European market. When using these we have a unified API for payments that work across banks. If you want a no hassle experience where the API towards us always is the same - this is the products to use.
+Note! The ``paymentProducts`` are supported, but needs to be configured accourding to the bank´s documentation.
 
-The list of **payment products** is specifically for the bank at hand. When using one of these you have to send payment information in a format the bank will accept. 
-
-Read more about the [payment initiation](pis.md) API.
+The ``supportedAuthorizationMethods`` refers to the Open Payments authorisation method and environment.
