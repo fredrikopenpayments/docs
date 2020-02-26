@@ -2,16 +2,42 @@
   "docs": {
     "Getting Started": [
       "introduction",
-      "theapis"
+      "thesolution",
+      "onboarding",
+      "about",
       "banks",
       "glossary"    
     ],
     "Tutorials": [
-      "api",
+      "api"
+    ],
+    "ASPSPIS": [
       "aspsp",
-      "consent",
+      "aspspgetaspsplist",
+      "aspspgetaspspdetails",
+      "aspspgetcitylist",
+      "aspspgetcitydetails",
+      "aspspgetcountrylist",
+      "aspspgetcountrydetails"
+    ],
+    "AIS": [
       "ais",
-      "pis"
+      "aisgetaccountlist",
+      "aisgetaccountdetails",
+      "aisgetbalances",
+      "aisgettransactionlist",
+      "aisgettransactiondetails",
+      "consent"
+    ],
+    "PIS": [
+      "pis",
+      "piscreatepaymentinitiation",
+      "pisgetpaymentinitiation",
+      "pisgetpaymentinitiationstatus",
+      "pisstartpaymentinitiationauthorisationprocess",
+      "pisauthsubres",
+      "pisgetiniauthSCA",
+      "pisPSUdata"
     ]
   },
   "docs-other": {

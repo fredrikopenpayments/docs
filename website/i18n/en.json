@@ -6,12 +6,32 @@
     "tagline": "Join the Open Banking Revolution",
     "docs": {
       "about": {
-        "title": "The Open Payment Platform",
-        "sidebar_label": "The Open Payment Platform"
+        "title": "About",
+        "sidebar_label": "About"
       },
       "ais": {
         "title": "How to use the AIS API",
         "sidebar_label": "How to use the AIS API"
+      },
+      "aisgetaccountdetails": {
+        "title": "Get Account Details",
+        "sidebar_label": "Get Account Details"
+      },
+      "aisgetaccountlist": {
+        "title": "Get Account List",
+        "sidebar_label": "Get Account List"
+      },
+      "aisgetbalances": {
+        "title": "Get Balances",
+        "sidebar_label": "Get Balances"
+      },
+      "aisgettransactiondetails": {
+        "title": "Get Transaction Details",
+        "sidebar_label": "Get Transaction Details"
+      },
+      "aisgettransactionlist": {
+        "title": "Get Transaction List",
+        "sidebar_label": "Get Transaction List"
       },
       "api": {
         "title": "Getting Started with the API",
@@ -20,6 +40,30 @@
       "aspsp": {
         "title": "How to use the ASPSP API",
         "sidebar_label": "How to use the ASPSP API"
+      },
+      "aspspgetaspspdetails": {
+        "title": "Get ASPSP Details",
+        "sidebar_label": "Get ASPSP Details"
+      },
+      "aspspgetaspsplist": {
+        "title": "Get ASPSP List",
+        "sidebar_label": "Get ASPSP List"
+      },
+      "aspspgetcitydetails": {
+        "title": "Get City Details",
+        "sidebar_label": "Get City Details"
+      },
+      "aspspgetcitylist": {
+        "title": "Get City List",
+        "sidebar_label": "Get City List"
+      },
+      "aspspgetcountrydetails": {
+        "title": "Get Country Details",
+        "sidebar_label": "Get Country Details"
+      },
+      "aspspgetcountrylist": {
+        "title": "Get Country List",
+        "sidebar_label": "Get Country List"
       },
       "banks": {
         "title": "Supported Banks",
@@ -37,9 +81,9 @@
         "title": "Get started with Examples",
         "sidebar_label": "Get started with Examples"
       },
-      "getstarted": {
-        "title": "Quickstart",
-        "sidebar_label": "Quickstart"
+      "onboarding": {
+        "title": "Onboarding",
+        "sidebar_label": "Onboarding"
       },
       "glossary": {
         "title": "Glossary",
@@ -65,21 +109,57 @@
         "title": "How to use the PIS API",
         "sidebar_label": "How to use the PIS API"
       },
+      "pisauthsubres": {
+        "title": "Get Payment Initiation Authorisation Sub-Resources",
+        "sidebar_label": "Get Payment Initiation Authorisation Sub-Resources"
+      },
+      "piscreatepaymentinitiation": {
+        "title": "Create Payment Initiation",
+        "sidebar_label": "Create Payment Initiation"
+      },
+      "pisgetiniauthSCA": {
+        "title": "Get Payment Initiation Authorisation SCA Status",
+        "sidebar_label": "Get Payment Initiation Authorisation SCA Status"
+      },
+      "pisgetpaymentinitiation": {
+        "title": "Get Payment Initiation",
+        "sidebar_label": "Get Payment Initiation"
+      },
+      "pisgetpaymentinitiationstatus": {
+        "title": "Get Payment Initiation Status",
+        "sidebar_label": "Get Payment Initiation Status"
+      },
+      "pisPSUdata": {
+        "title": "Update PSU Data for Payment Initiation",
+        "sidebar_label": "Update PSU Data for Payment Initiation"
+      },
+      "pisstartpaymentinitiationauthorisationprocess": {
+        "title": "Start Payment Initiation Authorisation Process",
+        "sidebar_label": "Start Payment Initiation Authorisation Process"
+      },
       "postman": {
         "title": "Get started with Postman",
         "sidebar_label": "Get started with Postman"
       },
+      "releasenotes": {
+        "title": "Release notes",
+        "sidebar_label": "Release notes"
+      },
       "SCA": {
-        "title": "SCA",
-        "sidebar_label": "SCA"
+        "title": "Strong Customer Authentication (SCA)",
+        "sidebar_label": "Strong Customer Authentication (SCA)"
       },
       "swedsess": {
         "title": "Swedbank (SWEDSESS)",
         "sidebar_label": "Swedbank"
       },
+      "thesolution": {
+        "title": "The Open Payments solution",
+        "sidebar_label": "The Open Payments solution"
+      },
       "theapis": {
-        "title": "The APIs",
-        "sidebar_label": "The APIs"
+        "title": "The Open Payments solution",
+        "sidebar_label": "The Open Payments solution"
       },
       "version-1.0.0/version-1.0.0-ais": {
         "title": "How to use the AIS API",
@@ -144,6 +224,9 @@
     "categories": {
       "Getting Started": "Getting Started",
       "Tutorials": "Tutorials",
+      "ASPSPIS": "ASPSPIS",
+      "AIS": "AIS",
+      "PIS": "PIS",
       "Category": "Category"
     }
   },

@@ -1,9 +1,8 @@
 ---
-id: getstarted
-title: Quickstart
-sidebar_label: Quickstart
+id: onboarding
+title: Onboarding
+sidebar_label: Onboarding
 ---
-# Onboarding process
 ### 1. Register
 [Register a client](https://developer.openpayments.io) by creating a developer account at our [Developer Portal](https://developer.openpayments.io) to acquire client credentials.
 

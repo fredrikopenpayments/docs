@@ -3,9 +3,17 @@ id: pis
 title: How to use the PIS API
 sidebar_label: How to use the PIS API
 ---
-
 This API is used to get consent for and initiating payments. Note that the consent from the consent API is only used to access the account information API and that this API has its own consent procedure. (Very similar to the one in the [consent API](consent.md).)
 
+## Basic flow 
+This is an example of a typical flow of the PIS in the system:
+1. You are presented a list of supported countries.
+1. You select a country.
+1. The system retrieves a list of banks for that country.
+1. You select a bank.
+1. The system moves on to one of the other APIs to get account information or to initiate a payment.
+
+## Hosts
 Available `AUTH_HOST` values
 
 | Environment | URL |

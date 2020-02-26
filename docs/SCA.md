@@ -1,11 +1,9 @@
 ---
 id: SCA
-title: SCA
-sidebar_label: SCA
+title: Strong Customer Authentication (SCA)
+sidebar_label: Strong Customer Authentication (SCA)
 ---
-# Strong Customer Authentication (SCA) approaches
 The API design differs across the various SCA approaches:
-
 * Redirect - the authorisation is redirected via the TPP
 * OAuth2 - the authorisation is made with a token
 * Decoupled - the authorisation is made directly between the ASPSP and the PSU
