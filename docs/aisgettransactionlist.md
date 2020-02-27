@@ -17,7 +17,10 @@ curl -X GET
 
 ### Headers
 
-See Read account list.
+- `PSU-IP-Address` - the IP-address of the end user
+- `X-BicFi` - the identifier for the user's ASPSP. Find it in  the [ASPSP API](aspsp.md).
+- `X-Request-ID` - used to verify that the response matches the request
+- `Consent-ID` - identification of the corresponding consent granted by the PSU
 
 ### Path parameter
 

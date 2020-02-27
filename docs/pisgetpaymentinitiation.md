@@ -13,8 +13,9 @@ curl -X GET
 ```
 
 ### Headers
-
-See [Create Payment Initiation](#create-payment-initiation)
+- `PSU-IP-Address` is the IP address of the end user.
+- `X-BicFi` the BICFI for the user's ASPSP. Find it in [the ASPSP API](/en/openpayments-NextGenPSD2-1.3.3.html#tag/ASPSP-Information-Service-(ASPSPIS)).
+- `X-Request-ID` used to verify that the response matches the request.
 
 ### Path parameters
 

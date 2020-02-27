@@ -31,7 +31,6 @@ curl -X POST
         "remittanceInformationUnstructured": "[MESSAGE]"
     }'
 ```
-
 ### Headers
 
 - `PSU-IP-Address` is the IP address of the end user.
@@ -39,7 +38,6 @@ curl -X POST
 - `X-Request-ID` used to verify that the response matches the request.
 
 ### Path parameters
-
 `PAYMENT_PRODUCT` can be one of:
 
 - `domestic` - this is a non-euro payment within one country.
@@ -69,5 +67,4 @@ The [Get ASPSP Details endpoint](/en/openpayments-NextGenPSD2-1.3.3.html#operati
 ```
 
 ### Response headers
-
 `X-Request-ID`

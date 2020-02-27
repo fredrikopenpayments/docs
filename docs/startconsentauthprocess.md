@@ -12,11 +12,12 @@ curl -X POST
     -H 'X-Request-ID: [GUID]'
 ```
 
-Note that this call does not need a body despite being a `POST`.
+Note! This call does not need a body (despite being a `POST`).
 
 ### Headers
-
-See Create consent.
+- `PSU-IP-Address` is the IP address of the end user.
+- `X-BicFi` the BICFI for the user's ASPSP. Find it in [the ASPSP API](/en/openpayments-NextGenPSD2-1.3.3.html#tag/ASPSP-Information-Service-(ASPSPIS)).
+- `X-Request-ID` used to verify that the response matches the request.
 
 ### Path parameter
 
@@ -46,5 +47,5 @@ See Create consent.
 
 ### Response headers
 
-- `ASPSP-SCA-Approach` - see below for different values.
+- `ASPSP-SCA-Approach` - for more information, see [SCA approaches]("sca.md").
 - `X-Request-ID`

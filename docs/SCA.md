@@ -9,7 +9,6 @@ The API design differs across the various SCA approaches:
 * Decoupled - the authorisation is made directly between the ASPSP and the PSU
 * Embedded
 
-
 Note! The Embedded SCA Approach is N/A.
 
 

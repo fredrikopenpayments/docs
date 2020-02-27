@@ -3,21 +3,23 @@ id: parameters
 title: Parameters
 sidebar_label: Parameters
 ---
+This section contains all relevant parameters with additional descriptions in alphabetic order.
+
 ### Headers
 | Parameter | Description |
 | --- | --- |
 | `Consent-ID` | identification of the corresponding consent granted by the PSU |
-| `PSU-IP-Address`  | the IP-address of the end user |
-| `X-BicFi` | the identifier for the user's ASPSP. Find it in  the [ASPSP API](aspsp.md). |
-| `X-Request-ID`  | used to verify that the response matches the request |
+| `PSU-IP-Address`  | is the IP-address of the end user |
+| `X-BicFi` | is the identifier for the user's ASPSP. Find it in  the [ASPSP API](aspsp.md). |
+| `X-Request-ID`  | is used to verify that the response matches the request |
            
 ### Path parameters
 
 | Parameter | Description |
 | --- | --- |
 | `ACCOUNT_ID` | refers to `resourceId` in the response from [Get Account List](aisgetaccountlist.md) |
-| `CITY_ID`  | should be one of the ids returned from the "get cities" endpoint. |
-| `COUNTRY_CODE` | The  parameter should be one of the codes in the ISO 3166-1 alpha-2 standard. |
+| `CITY_ID`  | is one of the IDs returned from the [Get City List](aspspgetcitylist.md) endpoint. |
+| `COUNTRY_CODE` | is one of the codes in the ISO 3166-1 alpha-2 standard. |
 
 ### Query parameters
 | Parameter | Description |
@@ -30,6 +32,8 @@ sidebar_label: Parameters
 ## Responses
 | Parameter | Description |
 | --- | --- |
+| `ASPSP-SCA-Approach` | --- |
 | ``companyNumber`` | The company number is equivalent to the organisation number. |
 | ``globalPaymentProducts`` | The  are supported by Open Payments for all banks. For more information about the supported payment products, see [payment products](paymentproducts.md). Note! The ``paymentProducts`` are supported, but needs to be configured accourding to the bank´s documentation. |
 | ``supportedAuthorizationMethods`` | The  refers to the Open Payments authorisation method and environment. |
+| `X-Request-ID` | --- |

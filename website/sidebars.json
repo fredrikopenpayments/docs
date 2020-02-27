@@ -19,7 +19,15 @@
       "paymentproducts"   
     ],
     "Consent": [
-      "consent"
+      "consent",
+      "createconsent",
+      "getconsent",
+      "deleteconsent",
+      "getconsentstatus",
+      "startconsentauthprocess",
+      "getconsentauthsubres",
+      "getconsentauthSCA",
+      "updatepsudataforconsent"
     ],
     "ASPSPIS": [
       "aspsp",

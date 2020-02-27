@@ -17,7 +17,9 @@ curl -X PUT
 
 ### Headers
 
-See Create consent.
+- `PSU-IP-Address` is the IP address of the end user.
+- `X-BicFi` the BICFI for the user's ASPSP. Find it in [the ASPSP API](aspsp.md).
+- `X-Request-ID` used to verify that the response matches the request.
 
 ### Path parameter
 
