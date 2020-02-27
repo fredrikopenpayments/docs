@@ -14,17 +14,16 @@ curl -X GET
     -H 'X-Request-ID: [GUID]'
     -H 'Consent-ID: [CONSENT_ID]'
 ```
-
 ### Headers
-
-See Read account list.
+- `PSU-IP-Address` - the IP-address of the end user
+- `X-BicFi` - the identifier for the user's ASPSP. Find it in  the [ASPSP API](aspsp.md).
+- `X-Request-ID` - used to verify that the response matches the request
+- `Consent-ID` - identification of the corresponding consent granted by the PSU
 
 ### Path parameter
-
-- `ACCOUNT_ID` Refers to `resourceId` in the response from [Get Account List](#get-account-list).
+- `ACCOUNT_ID` - refers to `resourceId` in the response from [Get Account List](aisgetaccountlist.md).
 
 ### Query parameters
-
 - `withBalance` Boolean, include balances in response. Optional.
 
 ### Response
@@ -60,5 +59,4 @@ See Read account list.
 ```
 
 ### Response headers
-
 - `X-Request-ID`

@@ -1,32 +1,12 @@
 ---
 id: aspsp
-title: How to use the ASPSP API
-sidebar_label: How to use the ASPSP API
+title: How to use ASPSP
+sidebar_label: How to use ASPSP
 ---
 This API is used to retreive information about supported ASPSPs. Parts of the ASPSP information can be used to call the other APIs.
 
-## Basic flow 
-This is an example of a typical flow of the ASPSPIS in the system:
-1. You are presented a list of supported countries.
-1. You select a country.
-1. The system retrieves a list of banks for that country.
-1. You select a bank.
-1. The system moves on to one of the other APIs to get account information or to initiate a payment.
-
-## Hosts
-Available `AUTH_HOST` values
-| Environment | URL |
-| --- | --- |
-| Sandbox | https://auth.sandbox.openbankingplatform.com |
-| Production | https://auth.openbankingplatform.com |
-
-Available `API_HOST` values
-| Environment | URL |
-| --- | --- |
-| Sandbox | https://api.sandbox.openbankingplatform.com |
-| Production | https://api.openbankingplatform.com |
-
-## Acquire an access token for ASPSP IS
+## Prerequisites
+## Get an access token for ASPSP IS
 ```javascript
 curl -X POST
     [AUTH_HOST]/connect/token
@@ -43,8 +23,15 @@ This post will return a JSON object that looks like this:
     "scope": "aspspinformation"
 }
 ```
-
 Bring the ACCESS_TOKEN forward to subsequent calls.
+
+## Basic flow 
+This is an example of a typical flow of the ASPSPIS in the system:
+1. You are presented a list of supported countries.
+1. You select a country.
+1. The system retrieves a list of banks for that country.
+1. You select a bank.
+1. The system moves on to one of the other APIs to get account information or to initiate a payment.
 
 ## Account Servicing Payment Service Provider (ASPSP) Flow
 ![PlantUML model](/img/aspsp.svg)

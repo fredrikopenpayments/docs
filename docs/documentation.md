@@ -18,7 +18,7 @@ A B C D E F G H I J K L M N O P Q R S T U VW X Y Z 0 1 23 45 67 89
 /-?:().,' +
 Space
 
-### Requests 
+## Requests 
 For API request calls, query parameters, HTTP header parameters and body content parameters are specified accordingly:
 
 **Optional** 
@@ -31,7 +31,13 @@ interface or by certain rules as defined in the “Description” column of the 
 **Mandatory** 
 The attribute is supported by the server and shall be used by the client.
 
-### Responses 
+### X-Request-ID
+All calls accept a header called `X-Request-ID` - this should be set to a newly generated guid. Denoted in the code with [GUID]. If your client is also a platform it would make sense to accept such an id from the client that calls you. This id is used to trace requests through our systems. Logging it somewhere together with the request will make troubleshooting much easier.
+
+## Responses 
 **Optional** The attribute is supported optionally by the server.
+
 **Conditional** The attribute is supported by the server under certain conditions as indicated in the “Description” column of the table above.
+
 **Mandatory** The attribute is always supported by the server.
+

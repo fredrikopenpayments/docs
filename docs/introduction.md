@@ -20,7 +20,7 @@ With this service you can get consent from the user to authorise payments or acc
 With this service you can initiate, update, or delete payments and get payment status information.
 
 ## Before you get started
-For more information about the solution, see [The Open payments solution](theapis.md).
+For more information about the solution, see [The Open payments solution](thesolution.md).
 
 ## Stay updated with our latest system status & bank compliance 
 Make sure to get notified if something is temporarily down, see [System status](systemstatus.md). For a full list of bank compliance, see [Compliance](compliance).

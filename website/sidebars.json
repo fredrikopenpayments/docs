@@ -18,8 +18,8 @@
       "sca",
       "paymentproducts"   
     ],
-    "Tutorials": [
-      "api"
+    "Consent": [
+      "consent"
     ],
     "ASPSPIS": [
       "aspsp",
@@ -36,8 +36,7 @@
       "aisgetaccountdetails",
       "aisgetbalances",
       "aisgettransactionlist",
-      "aisgettransactiondetails",
-      "consent"
+      "aisgettransactiondetails"
     ],
     "PIS": [
       "pis",
@@ -48,6 +47,10 @@
       "pisauthsubres",
       "pisgetiniauthSCA",
       "pisPSUdata"
+    ],
+    "API parts": [
+      "schemas",
+      "parameters"
     ]
   },
   "docs-other": {

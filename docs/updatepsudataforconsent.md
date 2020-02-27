@@ -1,13 +1,13 @@
 ---
-id: pisPSUdata
-title: Update PSU Data for Payment Initiation
-sidebar_label: Update PSU Data for Payment Initiation
+id: updatepsudataforconsent
+title: Update PSU Data for Consent
+sidebar_label: Update PSU Data for Consent
 ---
 ```javascript
 curl -X PUT
-    [API_HOST]/psd2/paymentinitiation/v1/payments/[PAYMENT_PRODUCT]/[PAYMENT_ID]/authorisations/[PAYMENT_AUTH_ID]
+    [API_HOST]/psd2/consent/v1/consents/[CONSENT_ID]/authorisations/[CONSENT_AUTH_ID]
     -H 'Authorization: Bearer [ACCESS_TOKEN]'
-    -H 'PSU-IP-Address: [PSU_IP_ADDRESS]'
+    -H 'PSU-IP-Address: [PSU_IP_Address]'
     -H 'X-BicFi: [BICFI]'
     -H 'X-Request-ID: [GUID]'
     -d '{
@@ -17,11 +17,17 @@ curl -X PUT
 
 ### Headers
 
-See [Create Payment Initiation](#create-payment-initiation)
+See Create consent.
 
-### Path parameters
+### Path parameter
 
-`PAYMENT_ID` that was returned from the initiation request.
+- `CONSENT_ID`
+- `CONSENT_AUTH_ID`
+
+### Response headers
+
+- `ASPSP-SCA-Approach` see below for different values.
+- `X-Request-ID`
 
 ### Response
 ```javascript
@@ -31,18 +37,17 @@ See [Create Payment Initiation](#create-payment-initiation)
         "authenticationMethodId": "[AUTHENTICATION_METHOD_ID]"
     },
     "_links": {
+        "scaStatus": {
+            "href": "/psd2/consent/v1/consents/[CONSENT_ID]/authorisations/[CONSENT_AUTH_ID]"
+        },
         "scaOAuth": {
-            "href": "[AUTH_HOST]/connect/authorize?client_id=[CLIENT_ID]&scope=paymentinitiation&response_type=code&redirect_uri=[TPP_REDIRECT_URI]&state=[TPP_STATE]&acr_values=idp:[BICFI]%20paymentId:[PAYMENT_ID]%20paymentAuthorisationId:[PAYMENT_AUTH_ID]"
+            "href": "[AUTH_HOST]/connect/authorize?client_id=[CLIENT_ID]&scope=accountinformation&response_type=code&redirect_uri=[TPP_REDIRECT_URI]&state=[TPP_STATE]&acr_values=idp:[BICFI]%20consentId:[CONSENT_ID]%20consentAuthorisationId:[CONSENT_AUTH_ID]"
         }
     },
+    "psuMessage": "Please confirm with your bank app",
     "scaStatus": "scaMethodSelected"
 }
 ```
-
-### Response headers
-
-- `X-Request-ID`
-- `ASPSP-SCA-Approach` - see [below](#aspsp\-sca\-approach) for different values.
 
 ### Test procedure
 
@@ -63,12 +68,13 @@ If the ASPSP uses OAuth:
 - On this URI a `code` param will be added. 
 - Use this `code` in the subsequent call when getting the account information token.
 
-Call the OAuth token endpoint to finalize payment.
-```javascript
-curl -X POST
-    [AUTH_HOST]/connect/token
-    -H 'Content-Type: application/x-www-form-urlencoded'
-    -H 'X-PaymentAuthorisationId: [PAYMENT_AUTH_ID]'
-    -H 'X-PaymentId: [PAYMENT_ID]'
-    -d 'client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET]&code=[CODE]&redirect_uri=[TPP_REDIRECT_URI]&grant_type=authorization_code'
-```
+Call the OAuth token endpoint to finalize consent flow.
+
+    curl -X POST
+        [AUTH_HOST]/connect/token
+        -H 'Content-Type: application/x-www-form-urlencoded'
+        -H 'X-ConsentAuthorisationId: [CONSENT_AUTH_ID]'
+        -H 'X-ConsentId: [CONSENT_ID]'
+        -d 'client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET]&code=[CODE]&redirect_uri=[TPP_REDIRECT_URI]&grant_type=authorization_code'
+
+At this point you are ready to call the account service. Read more in the [account service tutorial](ais.md).

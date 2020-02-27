@@ -50,6 +50,15 @@ Available `AUTH_HOST` values
 | Production | https://auth.openbankingplatform.com |
 
 ### 3. Integrate 
+You can choose to work in our sandbox environment for testing, or in our production environment.
+
+Available `API_HOST` values
+
+| Environment | URL |
+| --- | --- |
+| Sandbox | https://api.sandbox.openbankingplatform.com |
+| Production | https://api.openbankingplatform.com |
+
 You can now start integrating with:
-* [Postman](postman.md)
+* [Download](https://docs.openpayments.io/obp.postman_collection.json) our Postman Collection with ready made API calls.
 * [API ref](http://localhost:3000/en/openpayments-NextGenPSD2-1.3.3.html)

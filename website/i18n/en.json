@@ -6,8 +6,8 @@
     "tagline": "Join the Open Banking Revolution",
     "docs": {
       "ais": {
-        "title": "How to use the AIS API",
-        "sidebar_label": "How to use the AIS API"
+        "title": "How to use AIS",
+        "sidebar_label": "How to use AIS"
       },
       "aisgetaccountdetails": {
         "title": "Get Account Details",
@@ -29,13 +29,9 @@
         "title": "Get Transaction List",
         "sidebar_label": "Get Transaction List"
       },
-      "api": {
-        "title": "Getting Started with the API",
-        "sidebar_label": "Getting started with the API"
-      },
       "aspsp": {
-        "title": "How to use the ASPSP API",
-        "sidebar_label": "How to use the ASPSP API"
+        "title": "How to use ASPSP",
+        "sidebar_label": "How to use ASPSP"
       },
       "aspspgetaspspdetails": {
         "title": "Get ASPSP Details",
@@ -66,8 +62,16 @@
         "sidebar_label": "Compliance"
       },
       "consent": {
-        "title": "How to use the Consent API",
-        "sidebar_label": "How to use the Consent API"
+        "title": "How to use Consent service",
+        "sidebar_label": "How to use Consent service"
+      },
+      "createconsent": {
+        "title": "Create Consent",
+        "sidebar_label": "Create Consent"
+      },
+      "deleteconsent": {
+        "title": "Delete Consent",
+        "sidebar_label": "Delete Consent"
       },
       "documentation": {
         "title": "Documentation",
@@ -77,9 +81,21 @@
         "title": "SEB (ESSESESS)",
         "sidebar_label": "SEB"
       },
-      "examples": {
-        "title": "Get started with Examples",
-        "sidebar_label": "Get started with Examples"
+      "getconsent": {
+        "title": "Get Consent",
+        "sidebar_label": "Get Consent"
+      },
+      "getconsentauthSCA": {
+        "title": "Get Consent Authorisation SCA Status",
+        "sidebar_label": "Get Consent Authorisation SCA Status"
+      },
+      "getconsentauthsubres": {
+        "title": "Get Consent Authorisation Sub-Resources",
+        "sidebar_label": "Get Consent Authorisation Sub-Resources"
+      },
+      "getconsentstatus": {
+        "title": "Get Consent Status",
+        "sidebar_label": "Get Consent Status"
       },
       "glossary": {
         "title": "Glossary",
@@ -105,13 +121,17 @@
         "title": "Onboarding",
         "sidebar_label": "Onboarding"
       },
+      "parameters": {
+        "title": "Parameters",
+        "sidebar_label": "Parameters"
+      },
       "paymentproducts": {
         "title": "Payment products",
         "sidebar_label": "Payment products"
       },
       "pis": {
-        "title": "How to use the PIS API",
-        "sidebar_label": "How to use the PIS API"
+        "title": "How to use PIS",
+        "sidebar_label": "How to use PIS"
       },
       "pisauthsubres": {
         "title": "Get Payment Initiation Authorisation Sub-Resources",
@@ -153,9 +173,17 @@
         "title": "Strong Customer Authentication (SCA)",
         "sidebar_label": "Strong Customer Authentication (SCA)"
       },
+      "schemas": {
+        "title": "Schemas",
+        "sidebar_label": "Schemas"
+      },
       "standards": {
         "title": "Standards",
         "sidebar_label": "Standards"
+      },
+      "startconsentauthprocess": {
+        "title": "Start Consent Authorisation Process",
+        "sidebar_label": "Start Consent Authorisation Process"
       },
       "swedsess": {
         "title": "Swedbank (SWEDSESS)",
@@ -165,13 +193,13 @@
         "title": "System status",
         "sidebar_label": "System status"
       },
-      "thesolution": {
-        "title": "The Open Payments solution",
-        "sidebar_label": "The Open Payments solution"
-      },
       "theapis": {
         "title": "The Open Payments solution",
         "sidebar_label": "The Open Payments solution"
+      },
+      "updatepsudataforconsent": {
+        "title": "Update PSU Data for Consent",
+        "sidebar_label": "Update PSU Data for Consent"
       },
       "version-1.0.0/version-1.0.0-ais": {
         "title": "How to use the AIS API",
@@ -237,11 +265,13 @@
       "Getting Started": "Getting Started",
       "About": "About",
       "Concepts": "Concepts",
-      "Tutorials": "Tutorials",
+      "Consent": "Consent",
       "ASPSPIS": "ASPSPIS",
       "AIS": "AIS",
       "PIS": "PIS",
-      "Category": "Category"
+      "API parts": "API parts",
+      "Category": "Category",
+      "Tutorials": "Tutorials"
     }
   },
   "pages-strings": {
