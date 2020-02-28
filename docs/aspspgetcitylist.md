@@ -3,6 +3,7 @@ id: aspspgetcitylist
 title: Get City List
 sidebar_label: Get City List
 ---
+This endpoint will get all ISO city codes per city, which can used to filter the ASPSP list.
 
 ```javascript
 curl -X GET

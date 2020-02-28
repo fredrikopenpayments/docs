@@ -23,8 +23,9 @@ curl -X PUT
 
 ### Path parameter
 
-- `CONSENT_ID`
-- `CONSENT_AUTH_ID`
+Get the `CONSENT_ID` from the [Get consent](getconsent.md) resource.
+
+Get the `CONSENT_AUTH_ID`from the [Start consent authorisation process](startconsentauthprocess.md) resource.
 
 ### Response headers
 

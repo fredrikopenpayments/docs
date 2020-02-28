@@ -3,7 +3,7 @@ id: aspspgetaspspdetails
 title: Get ASPSP Details
 sidebar_label: Get ASPSP Details
 ---
-With this resource you can get the details about the ASPSP and supported [payment products](paymentproducts.md).
+With this endpoint you can get details about the ASPSP and supported [payment products](paymentproducts.md).
 
 ```javascript
 curl -X GET

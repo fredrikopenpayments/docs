@@ -6,7 +6,7 @@ sidebar_label: How to use AIS
 This service is used to access account information.
 ## Prerequisites
 ### Get an access token for Account Information
-Get a token to use for subsequent calls to the API. The scope should be set to `accountinformation`.
+Get a token to use for subsequent calls to the API. The scope is set to `accountinformation`.
 ```javascript
 curl -X POST
     [AUTH_HOST]/connect/token

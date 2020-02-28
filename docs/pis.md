@@ -7,7 +7,7 @@ This API is used to get consent for and initiating payments.
 
 ## Prerequisites
 ### Get an access token for Payment Initiation
-Get a token to use for subsequent calls to the API. The scope should be set to `paymentinitiation`.
+Get a token to use for subsequent calls to the API. The scope is set to `paymentinitiation`.
 ```javascript
 curl -X POST
     [AUTH_HOST]/connect/token

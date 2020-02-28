@@ -4,6 +4,7 @@ title: Create Consent
 sidebar_label: Create Consent
 ---
 This endpoint is used to initiate the consent process with a request for consent.
+
 ```javascript
 curl -X POST
     [API_HOST]/psd2/consent/v1/consents
@@ -52,19 +53,25 @@ curl -X POST
 
 ### Body description
 
-`access` is a list of data items that consent need to be acquired for. There are three possible things to get consent from:
+`access` is a list of data items that consent need to be acquired for. The following access points to get consent from:
 
-- `accounts` this is a consent to get access to an account list with some account details needed.
-- `balances` this is a consent to get access to balances for accounts.
-- `transactions` this is a consent to see all the transactions for accounts.
+- `accounts` consent to get access to an account list with  account details
+- `balances` consent to get access to accounts balancces
+- `transactions` consent to see all the accounts transactions
 
-Each consent request contains `iban` and `currency` (optional). Each consent request can be a list of account ids (ibans).
+Each consent request contains `iban` and `currency` (optional). 
+
+Each consent request can be a list of account ids (ibans).
+
 The `balances` and `transactions` consent request must contain a subset of the accounts listed in `accounts`.
 
 `recurringIndicator` is a boolean that indicates if the consent can be used multiple times or not.
+
 `validUntil` is a date in `yyyy-MM-dd` format.
+
 `frequencyPerDay` is a number indicating the number of usages per day for this consent.
-`combinedServiceIndicator` if true this indicates that the session will be used to initate a payment also. It has no practical meaning at this time.
+
+`combinedServiceIndicator` if true: this indicates that the session will be used to also initate a payment.
 
 ### Response
 ```javascript
@@ -90,15 +97,34 @@ The `balances` and `transactions` consent request must contain a subset of the a
     }
 }
 ```
+``consentStatus`` has one of the following values:
+* received
+* rejected
+* valid
+* revokedByPsu
+* expired
+* terminatedByTpp
 
-At this point the returned status should always be `received`. All possible values are listed [below](#consent-status).
+The returned status is `received` by default.
 
-The list at `scaMethods` typically contains one entry. But in the future it is possible that banks - or our platform here - will support multiple methods.
+`scaMethods` The list contains one entry.
 
-Authentication type will always be `PUSH_OTP` since that is what the banks we integrate with support. In the future it may change. See [below](#authentication-type) for a list of possible types.
+``authenticationType`` is one of the following values:
 
-The list of links can be used for further actions on the consent. The `self` one is obviously to retreive the created consent request. The `status` is for accessing the status of the request. And `startAuthorisation`is the next step in the sequence of calls that is needed to get a consent.
+* SMS_OTP
+* CHIP_OTP
+* PHOTO_OTP
+* PUSH_OTP 
 
+Note! `PUSH_OTP` is supported. The other authentication types are N/A. 
+
+The list of links can be used for further actions on the consent. 
+
+`self` one is  to retreive the created consent request. 
+
+`status` is for accessing the status of the request. 
+ 
+`startAuthorisation`is the next step in the sequence of calls that is needed to get a consent.
 
 ### Response headers
 

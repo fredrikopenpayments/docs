@@ -3,7 +3,7 @@ id: aspspgetcountrydetails
 title: Get Country Details
 sidebar_label: Get Country Details
 ---
-
+This endpoint is used to get ASPSP details by entering the ``isoCountryCode``, which can be fetched from [Get Country List](aspspgetcountrylist.md).
 ```javascript
 curl -X GET \
     [API_HOST]/psd2/aspspinformation/v1/countries/[COUNTRY_CODE]
@@ -13,7 +13,7 @@ curl -X GET \
 
 ### Path parameter
 
-The `COUNTRY_CODE` parameter should be one of the codes in the ISO 3166-1 alpha-2 standard.
+`COUNTRY_CODE` 
 
 ### Response
 ```javascript
@@ -22,5 +22,3 @@ The `COUNTRY_CODE` parameter should be one of the codes in the ISO 3166-1 alpha-
     "name": "Sweden"
 }
 ```
-
-This is exactly the same as in the country list.

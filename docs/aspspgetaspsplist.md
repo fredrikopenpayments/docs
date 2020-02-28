@@ -3,6 +3,7 @@ id: aspspgetaspsplist
 title: Get ASPSP List
 sidebar_label: Get ASPSP List
 ---
+This endpoint is used to get a list of all ASPSPs with identification code, ``bicFi``. You can filter the result by entering ``ìsoCountryCodes`` and ``cityIds``.
 
 ```javascript
 curl -X GET
@@ -16,7 +17,7 @@ curl -X GET
 - `isoCountryCodes` a comma separated list of countries to retrieve ASPSPs for. Optional.
 - `cityIds` a comma separated list of city ids to retrieve ASPSPs for. Optional.
 
-The service will return all matches for the queries. So it is possible to get all ASPSPs in Sweden and Helsinki by sending in the country code for Sweden and the city id for Helsinki.
+The post will return all matches for the queries. So it is possible to get all ASPSPs in Sweden and Helsinki by sending in the country code for Sweden and the city id for Helsinki.
 
 ### Response
 ```javascript

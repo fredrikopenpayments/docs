@@ -3,6 +3,8 @@ id: startconsentauthprocess
 title: Start Consent Authorisation Process
 sidebar_label: Start Consent Authorisation Process
 ---
+This endpoint starts the consent authorisation process.
+
 ```javascript
 curl -X POST
     [API_HOST]/psd2/consent/v1/consents/[CONSENT_ID]/authorisations
@@ -21,7 +23,7 @@ Note! This call does not need a body (despite being a `POST`).
 
 ### Path parameter
 
-- `CONSENT_ID`
+Get the `CONSENT_ID` from the [Get consent](getconsent.md) resource.
 
 ### Response
 ```javascript
@@ -47,5 +49,10 @@ Note! This call does not need a body (despite being a `POST`).
 
 ### Response headers
 
-- `ASPSP-SCA-Approach` - for more information, see [SCA approaches]("sca.md").
 - `X-Request-ID`
+- `ASPSP-SCA-Approach` - This is a response header that describes how to proceed with authentication and has one of the following values:
+* EMBEDDED
+* DECOUPLED
+* REDIRECT
+
+    For more information about the SCA approaches, see [SCA approaches]("sca.md").

@@ -3,7 +3,7 @@ id: aspsp
 title: How to use ASPSP
 sidebar_label: How to use ASPSP
 ---
-This API is used to retreive information about supported ASPSPs. Parts of the ASPSP information can be used to call the other APIs.
+This service is used to retreive information about supported ASPSPs. Parts of the ASPSP information can be used to call the other services.
 
 ## Prerequisites
 ## Get an access token for ASPSP IS

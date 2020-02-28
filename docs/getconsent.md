@@ -3,7 +3,8 @@ id: getconsent
 title: Get Consent
 sidebar_label: Get Consent
 ---
-Once you have a consent you can use the id for that consent to get information about the consent.
+This endpoint is used to get information about the consent by entering the consent ID. 
+
 ```javascript
 curl -X GET
     [API_HOST]/psd2/consent/v1/consents/[CONSENT_ID]
@@ -21,7 +22,7 @@ curl -X GET
 
 ### Path parameter
 
-- `CONSENT_ID` - the id that was returned when the consent was created.
+Get a `CONSENT_ID` in the [Create consent](createconsent.md) resource. 
 
 ### Response
 ```javascript

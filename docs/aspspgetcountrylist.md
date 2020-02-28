@@ -3,6 +3,7 @@ id: aspspgetcountrylist
 title: Get Country List
 sidebar_label: Get Country List
 ---
+This endpoint will get all ISO country codes per country, which can used to filter the ASPSP list.
 
 ```javascript
 curl -X GET
@@ -31,4 +32,4 @@ curl -X GET
 }
 ```
 
-Where the country code and name will be according to the ISO 3166-1 alpha-2 standard.
+The country code and name syntax is according to the ISO 3166-1 alpha-2 standard.

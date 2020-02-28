@@ -3,7 +3,7 @@ id: aspspgetcitydetails
 title: Get City Details
 sidebar_label: Get City Details
 ---
-
+This endpoint is used to get details about a city.
 ```javascript
 curl -X GET
     [API_HOST]/psd2/aspspinformation/v1/cities/[CITY_ID]
@@ -13,7 +13,7 @@ curl -X GET
 
 ### Path parameter
 
-`CITY_ID` should be one of the ids returned from the "get cities" endpoint.
+Get the `CITY_ID` from the [Get cities](getcities.md)  endpoint.
 
 ### Response
 ```javascript

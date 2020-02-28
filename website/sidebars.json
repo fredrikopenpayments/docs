@@ -31,12 +31,12 @@
     ],
     "ASPSPIS": [
       "aspsp",
-      "aspspgetaspsplist",
-      "aspspgetaspspdetails",
+      "aspspgetcountrylist",
+      "aspspgetcountrydetails",
       "aspspgetcitylist",
       "aspspgetcitydetails",
-      "aspspgetcountrylist",
-      "aspspgetcountrydetails"
+      "aspspgetaspsplist",
+      "aspspgetaspspdetails"
     ],
     "AIS": [
       "ais",

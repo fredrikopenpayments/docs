@@ -3,7 +3,10 @@ id: getconsentstatus
 title: Get Consent Status
 sidebar_label: Get Consent Status
 ---
-The consent request status is returned as part of the "get consent request" endpoint but it is also possible to use this endpoint to get only the status and nothing else. It is basaically the same call with `status` added at the end to the path.
+This endpoint is used to get the status of the consent.
+
+The consent request status is also returned as part of the [Get Consent](getconsent.md) endpoint.
+
 ```javascript
 curl -X GET
     [API_HOST]/psd2/consent/v1/consents/[CONSENT_ID]/status
@@ -30,8 +33,15 @@ curl -X GET
 }
 ```
 
-See possible values for status [further down](#consent-status).
+-``X-Request-ID``
+
+-``consentStatus`` for a consent can have one of the following values:
+* received
+* rejected
+* valid
+* revokedByPsu
+* expired
+* terminatedByTpp
 
 ### Response headers
 
-- `X-Request-ID`
