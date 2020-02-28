@@ -31,7 +31,7 @@ curl -X GET
 
 ### Path parameter
 
-- `CONSENT_ID`
+Get a `CONSENT_ID` in the [Create consent](createconsent.md) resource. 
 
 ### Response
 ```javascript

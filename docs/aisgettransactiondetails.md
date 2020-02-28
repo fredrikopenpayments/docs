@@ -3,7 +3,8 @@ id: aisgettransactiondetails
 title: Get Transaction Details
 sidebar_label: Get Transaction Details
 ---
-Retreive transaction details for a given [ACCOUNT_ID] and [TRANSACTIONID].
+This endpoint is used to get transaction details.
+
 ```javascript
 curl -X GET
     [API_HOST]/psd2/accountinformation/v1/accounts/[ACCOUNT_ID]/transactions/[TRANSACTIONID]

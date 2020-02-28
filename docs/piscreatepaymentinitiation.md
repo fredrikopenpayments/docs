@@ -3,6 +3,8 @@ id: piscreatepaymentinitiation
 title: Create Payment Initiation
 sidebar_label: Create Payment Initiation
 ---
+This endpoint is used to initiate the payment process.
+
 ```javascript
 curl -X POST
     [API_HOST]/psd2/paymentinitiation/v1/payments/[PAYMENT_PRODUCT]
@@ -40,11 +42,11 @@ curl -X POST
 ### Path parameters
 `PAYMENT_PRODUCT` can be one of:
 
-- `domestic` - this is a non-euro payment within one country.
-- `sepa-credit-transfers` - this is a EURO payment from one EURO ASPSP to another
-- `international` - this is an international payment
+- `domestic` - a non-euro payment within one country
+- `sepa-credit-transfers` - a EURO payment from one EURO ASPSP to another
+- `international` - an international payment
 
-The [Get ASPSP Details endpoint](/en/openpayments-NextGenPSD2-1.3.3.html#operation/getASPSPDetails) will tell you what payment products that are availalbe for that ASPSP.
+Use the [Get ASPSP Details](/en/openpayments-NextGenPSD2-1.3.3.html#operation/getASPSPDetails) endpoint to get available payment products.
 
 ### Response
 ```javascript

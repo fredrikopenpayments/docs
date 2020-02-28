@@ -55,23 +55,24 @@ Get the `CONSENT_AUTH_ID`from the [Start consent authorisation process](startcon
 ### Test procedure
 
 If the ASPSP uses OAuth:
-- The above endpoint returns an OAuth authorize URL in the `scoOAuth` field. 
-- Replace all the bracketed fields with real values. In your code you will have to replace only the two TPP values.
-    - `TPP_REDIRECT_URI` should be the URL to redirect to after auth is completed.
+
+This endpoint returns an OAuth authorize URL in the `scoOAuth` field. 
+1. Replace all the bracketed fields with real values. In your code you will only have to replace the two TPP values:
+    - `TPP_REDIRECT_URI` - the URL to redirect to after auth is completed.
     - `TPP_STATE` can be anything the TPP wants.
     - `BICIFI`
-- Run it in a browser. In this case you will get to a page at the ESSESESS sandbox. It may differ for different banks.
-- In the page you get to you can use one of the following fake personal numbers:
+1. Run in a browser. In this case you will get to a page at the ESSESESS sandbox. It may differ for different banks.
+1.  In the page you get to you can use one of the following fake personal numbers:
     - 9311219639
     - 9311219589
     - 8811215477
     - 8811212862
     - 8311211356
-- When you submit the data you will be redirected to the `[TPP_REDIRECT_URI]`
-- On this URI a `code` param will be added. 
-- Use this `code` in the subsequent call when getting the account information token.
 
-Call the OAuth token endpoint to finalize consent flow.
+    When you submit the data you will be redirected to the `[TPP_REDIRECT_URI]`. On this URI a `code` param will be added. 
+1. Use this `code` in the subsequent call when getting the account information token and call the OAuth token endpoint to finalize consent flow.
+
+This is the post:
 
     curl -X POST
         [AUTH_HOST]/connect/token
@@ -80,4 +81,4 @@ Call the OAuth token endpoint to finalize consent flow.
         -H 'X-ConsentId: [CONSENT_ID]'
         -d 'client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET]&code=[CODE]&redirect_uri=[TPP_REDIRECT_URI]&grant_type=authorization_code'
 
-At this point you are ready to call the account service. Read more in the [account service tutorial](ais.md).
+Now you are ready to call the account service. For more information, see [How to use AIS](ais.md).

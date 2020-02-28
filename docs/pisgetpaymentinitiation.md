@@ -3,6 +3,7 @@ id: pisgetpaymentinitiation
 title: Get Payment Initiation
 sidebar_label: Get Payment Initiation
 ---
+This endpoint is used to get a payment initiation. 
 ```javascript
 curl -X GET
     [API_HOST]/psd2/paymentinitiation/v1/payments/[PAYMENT_PRODUCT]/[PAYMENT_ID]
@@ -18,8 +19,7 @@ curl -X GET
 - `X-Request-ID` used to verify that the response matches the request.
 
 ### Path parameters
-
-`PAYMENT_ID` that was returned from the initiation request.
+Get a `PAYMENT_ID` in the [Create payment initiation](createpaymentinitiation.md) resource. 
 
 ### Response
 ```javascript

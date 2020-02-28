@@ -3,6 +3,7 @@ id: pisPSUdata
 title: Update PSU Data for Payment Initiation
 sidebar_label: Update PSU Data for Payment Initiation
 ---
+This endpoint is used to 
 ```javascript
 curl -X PUT
     [API_HOST]/psd2/paymentinitiation/v1/payments/[PAYMENT_PRODUCT]/[PAYMENT_ID]/authorisations/[PAYMENT_AUTH_ID]
@@ -23,7 +24,7 @@ curl -X PUT
 
 ### Path parameters
 
-`PAYMENT_ID` that was returned from the initiation request.
+Get a `PAYMENT_ID` in the [Create payment initiation](createpaymentinitiation.md) resource. 
 
 ### Response
 ```javascript
