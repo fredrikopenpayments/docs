@@ -5,8 +5,7 @@ sidebar_label: Compliance
 ---
  This page lists all supported banks in our sandbox and production environments, which are continuously being updated with more banks and new functionality in line with the banks´ releases. For a full view of the current environment status, see [System Status](systemstatus.md).
 
- Please contact us to get more information about the supported supported banks status. 
-
+ Please contact us to get more information about the supported banks status. 
 | Status | Description |
 | --- | --- |
 | ![](https://img.shields.io/badge/-active-success.svg) | Service is implemented and functional |

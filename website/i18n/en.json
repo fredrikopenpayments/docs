@@ -73,10 +73,6 @@
         "title": "Delete Consent",
         "sidebar_label": "Delete Consent"
       },
-      "documentation": {
-        "title": "Documentation",
-        "sidebar_label": "Documentation"
-      },
       "essesess": {
         "title": "SEB (ESSESESS)",
         "sidebar_label": "SEB"
@@ -120,10 +116,6 @@
       "onboarding": {
         "title": "Onboarding",
         "sidebar_label": "Onboarding"
-      },
-      "parameters": {
-        "title": "Parameters",
-        "sidebar_label": "Parameters"
       },
       "paymentproducts": {
         "title": "Payment products",
@@ -172,10 +164,6 @@
       "sca": {
         "title": "Strong Customer Authentication (SCA)",
         "sidebar_label": "Strong Customer Authentication (SCA)"
-      },
-      "schemas": {
-        "title": "Schemas",
-        "sidebar_label": "Schemas"
       },
       "standards": {
         "title": "Standards",
@@ -269,7 +257,6 @@
       "ASPSPIS": "ASPSPIS",
       "AIS": "AIS",
       "PIS": "PIS",
-      "API parts": "API parts",
       "Category": "Category",
       "Tutorials": "Tutorials"
     }

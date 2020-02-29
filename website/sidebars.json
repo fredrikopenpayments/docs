@@ -6,17 +6,12 @@
       "onboarding"    
     ],
     "About": [
-      "releasenotes",
-      "systemstatus",
       "compliance",
       "standards",
-      "documentation",
-      "banks",
       "glossary"    
     ],
     "Concepts": [
-      "sca",
-      "paymentproducts"   
+      "sca"  
     ],
     "Consent": [
       "consent",
@@ -55,10 +50,6 @@
       "pisauthsubres",
       "pisgetiniauthSCA",
       "pisPSUdata"
-    ],
-    "API parts": [
-      "schemas",
-      "parameters"
     ]
   },
   "docs-other": {
